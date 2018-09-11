@@ -19,14 +19,19 @@ namespace WpfApp1 {
     /// </summary>
     public partial class MainWindow {
         private bool RPC_Active = false;
+        config Config = new config();
         public MainWindow() {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Config.clientID = 
+        }
+
+        private void loadSettings() {
 
         }
 
         private void SaveSettings(object sender, RoutedEventArgs e) {
-
+            
         }
 
         private void ResetToDefaults(object sender, RoutedEventArgs e) {
@@ -47,5 +52,25 @@ namespace WpfApp1 {
             }
             
         }
+    }
+
+    class config {
+        public string clientID;
+        public string details;
+        public string state;
+        public string sm_img;
+        public string sm_img_txt;
+        public string lg_img;
+        public string lg_img_txt;
+    }
+
+    class defaultConfig {
+        public const string ClientID = "488870967217487872";
+        public const string Details = "Make your own";
+        public const string State = "custom Rich Presence";
+        public const string Sm_img = "rich_presence";
+        public const string Sm_img_txt = "Your Discord RP";
+        public const string Lg_img = "discord-logo-white";
+        public const string Lg_img_txt = "Discord";
     }
 }

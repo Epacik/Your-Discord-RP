@@ -1,7 +1,27 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="YourRPC.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ClientID" Type="System.String" Scope="User">
+      <Value Profile="(Default)">488870967217487872</Value>
+    </Setting>
+    <Setting Name="Details" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Make your own</Value>
+    </Setting>
+    <Setting Name="State" Type="System.String" Scope="User">
+      <Value Profile="(Default)">custom Rich Presence</Value>
+    </Setting>
+    <Setting Name="sm_img" Type="System.String" Scope="User">
+      <Value Profile="(Default)">rich_presence</Value>
+    </Setting>
+    <Setting Name="sm_img_txt" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Your Discord RP</Value>
+    </Setting>
+    <Setting Name="lg_img" Type="System.String" Scope="User">
+      <Value Profile="(Default)">discord-logo-white</Value>
+    </Setting>
+    <Setting Name="lg_img_txt" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Discord</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

@@ -22,5 +22,89 @@ namespace YourRPC.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("488870967217487872")]
+        public string ClientID {
+            get {
+                return ((string)(this["ClientID"]));
+            }
+            set {
+                this["ClientID"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Make your own")]
+        public string Details {
+            get {
+                return ((string)(this["Details"]));
+            }
+            set {
+                this["Details"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("custom Rich Presence")]
+        public string State {
+            get {
+                return ((string)(this["State"]));
+            }
+            set {
+                this["State"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("rich_presence")]
+        public string sm_img {
+            get {
+                return ((string)(this["sm_img"]));
+            }
+            set {
+                this["sm_img"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Your Discord RP")]
+        public string sm_img_txt {
+            get {
+                return ((string)(this["sm_img_txt"]));
+            }
+            set {
+                this["sm_img_txt"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("discord-logo-white")]
+        public string lg_img {
+            get {
+                return ((string)(this["lg_img"]));
+            }
+            set {
+                this["lg_img"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Discord")]
+        public string lg_img_txt {
+            get {
+                return ((string)(this["lg_img_txt"]));
+            }
+            set {
+                this["lg_img_txt"] = value;
+            }
+        }
     }
 }
