@@ -59,15 +59,5 @@ namespace YourRPC.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
-        /// </summary>
-        internal static byte[] winjs_symbols {
-            get {
-                object obj = ResourceManager.GetObject("winjs_symbols", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

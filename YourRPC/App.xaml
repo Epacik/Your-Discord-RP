@@ -4,16 +4,14 @@
              xmlns:local="clr-namespace:YourRPC"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Fonts.xaml"/>
                 <!--  FluentWPF Controls  -->
                 <ResourceDictionary Source="pack://application:,,,/FluentWPF;component/Styles/Controls.xaml" />
                 
             </ResourceDictionary.MergedDictionaries>
-            <Style x:Key="Assets">
-                <Setter Property="TextElement.FontFamily"
-                        Value="pack://application:,,,/fonts/#Symbols"></Setter>
-            </Style>
         </ResourceDictionary>
         
     </Application.Resources>

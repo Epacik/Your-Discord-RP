@@ -13,9 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Timers;
-using YourRPC;
+using System.Drawing;
+using System.IO;
 
-namespace WpfApp1 {
+namespace YourRPC {
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
@@ -27,7 +28,7 @@ namespace WpfApp1 {
         public MainWindow() {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            loadSettings();            
+            loadSettings();
         }
 
         private void loadSettings() {
@@ -113,25 +114,8 @@ namespace WpfApp1 {
                 Start.Foreground = Brushes.White;
                 Start.Content = "\uE769";
                 RPC_Active = true;
-                updateRP();
             }
             
-        }
-        private Timer timer1;
-
-        private void updateRP() {
-            //create timer interval = 1s
-            timer1 = new Timer(1000);
-            //
-            timer1.Elapsed += updateRP_Tick;
-            timer1.AutoReset = true;
-            timer1.Enabled = true;
-
-        }
-
-        private void updateRP_Tick(Object source, ElapsedEventArgs e) {
-            Test.Text = s.ToString();
-            s++;
         }
     }
 
