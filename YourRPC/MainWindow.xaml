@@ -27,13 +27,13 @@
         <Label Content="Small image description" HorizontalAlignment="Left" Margin="61,134,0,0" VerticalAlignment="Top"/>
         <Label Content="Large image name" HorizontalAlignment="Left" Margin="61,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.851,0.731"/>
         <Label Content="Large image description" HorizontalAlignment="Left" Margin="61,196,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="ClientID" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Details" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="State" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,72,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Small_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,134,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Small_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,103,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Large_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Large_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,196,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="ClientID" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,10,0,0" TextWrapping="Wrap" Text="488870967217487872" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Details" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,41,0,0" TextWrapping="Wrap" Text="Make your own" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="State" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,72,0,0" TextWrapping="Wrap" Text="custom Rich Presence" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Small_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,134,0,0" TextWrapping="Wrap" Text="Your Discord RP" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Small_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,103,0,0" TextWrapping="Wrap" Text="rich_presence" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Large_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,165,0,0" TextWrapping="Wrap" Text="discord-logo-white" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Large_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,196,0,0" TextWrapping="Wrap" Text="Discord" VerticalAlignment="Top" Width="219"/>
       
 
 

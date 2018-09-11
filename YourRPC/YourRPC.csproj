@@ -52,6 +52,9 @@
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DiscordRPC.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="FluentWPF, Version=0.3.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentWPF.0.3.2\lib\net45\FluentWPF.dll</HintPath>
@@ -140,6 +143,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DiscordRPC.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
