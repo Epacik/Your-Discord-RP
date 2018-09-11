@@ -15,7 +15,7 @@
                 &#xE105;
             </Button>
             <Button Foreground="Gray" Background="Transparent" x:Name="Start" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,90,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="Start_RPC" Content="&#xE102;"/>
-            
+
             <Button Foreground="Gray" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,155,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="ResetToDefaults" Content="&#xE8EE;"/>
 
         </Grid>
@@ -34,7 +34,8 @@
         <TextBox x:Name="Small_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,103,0,0" TextWrapping="Wrap" Text="rich_presence" VerticalAlignment="Top" Width="219"/>
         <TextBox x:Name="Large_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,165,0,0" TextWrapping="Wrap" Text="discord-logo-white" VerticalAlignment="Top" Width="219"/>
         <TextBox x:Name="Large_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,196,0,0" TextWrapping="Wrap" Text="Discord" VerticalAlignment="Top" Width="219"/>
-      
+        <TextBox x:Name="Test" HorizontalAlignment="Left" Height="23" Margin="270,253,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+
 
 
     </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Timers;
 using YourRPC;
 
 namespace WpfApp1 {
@@ -20,10 +21,17 @@ namespace WpfApp1 {
     /// </summary>
     public partial class MainWindow {
         private bool RPC_Active = false;
+        private int s = 0;
+        //make config object
         config Config = new config();
         public MainWindow() {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            loadSettings();            
+        }
+
+        private void loadSettings() {
+            //load to Config
             Config.clientID = YourRPC.Properties.Settings.Default.ClientID;
             Config.details = YourRPC.Properties.Settings.Default.Details;
             Config.state = YourRPC.Properties.Settings.Default.State;
@@ -31,18 +39,67 @@ namespace WpfApp1 {
             Config.sm_img_txt = YourRPC.Properties.Settings.Default.sm_img_txt;
             Config.lg_img = YourRPC.Properties.Settings.Default.lg_img;
             Config.lg_img_txt = YourRPC.Properties.Settings.Default.lg_img_txt;
-        }
 
-        private void loadSettings() {
-
+            //set fields in window
+            ClientID.Text = Config.clientID;
+            Details.Text = Config.details;
+            State.Text = Config.state;
+            Small_Image.Text = Config.sm_img;
+            Small_Image_Desc.Text = Config.sm_img_txt;
+            Large_Image.Text = Config.lg_img;
+            Large_Image_Desc.Text = Config.lg_img_txt;
         }
 
         private void SaveSettings(object sender, RoutedEventArgs e) {
-            
+            //save to config
+            Config.clientID = ClientID.Text;
+            Config.details = Details.Text;
+            Config.state = State.Text;
+            Config.sm_img = Small_Image.Text;
+            Config.sm_img_txt = Small_Image_Desc.Text;
+            Config.lg_img = Large_Image.Text;
+            Config.lg_img_txt = Large_Image_Desc.Text;
+
+            //save to file
+            YourRPC.Properties.Settings.Default.ClientID = Config.clientID;
+            YourRPC.Properties.Settings.Default.Details = Config.details;
+            YourRPC.Properties.Settings.Default.State = Config.state;
+            YourRPC.Properties.Settings.Default.sm_img = Config.sm_img;
+            YourRPC.Properties.Settings.Default.sm_img_txt = Config.sm_img_txt;
+            YourRPC.Properties.Settings.Default.lg_img = Config.lg_img;
+            YourRPC.Properties.Settings.Default.lg_img_txt = Config.lg_img_txt;
+            YourRPC.Properties.Settings.Default.Save();
         }
 
         private void ResetToDefaults(object sender, RoutedEventArgs e) {
+            
+            //save to config
+            Config.clientID = defaultConfig.ClientID;
+            Config.details = defaultConfig.Details;
+            Config.state = defaultConfig.State;
+            Config.sm_img = defaultConfig.Sm_img;
+            Config.sm_img_txt = defaultConfig.Sm_img_txt;
+            Config.lg_img = defaultConfig.Lg_img;
+            Config.lg_img_txt = defaultConfig.Lg_img_txt;
 
+            //save to file
+            YourRPC.Properties.Settings.Default.ClientID = Config.clientID;
+            YourRPC.Properties.Settings.Default.Details = Config.details;
+            YourRPC.Properties.Settings.Default.State = Config.state;
+            YourRPC.Properties.Settings.Default.sm_img = Config.sm_img;
+            YourRPC.Properties.Settings.Default.sm_img_txt = Config.sm_img_txt;
+            YourRPC.Properties.Settings.Default.lg_img = Config.lg_img;
+            YourRPC.Properties.Settings.Default.lg_img_txt = Config.lg_img_txt;
+            YourRPC.Properties.Settings.Default.Save();
+
+            //set fields in window
+            ClientID.Text = Config.clientID;
+            Details.Text = Config.details;
+            State.Text = Config.state;
+            Small_Image.Text = Config.sm_img;
+            Small_Image_Desc.Text = Config.sm_img_txt;
+            Large_Image.Text = Config.lg_img;
+            Large_Image_Desc.Text = Config.lg_img_txt;
         }
 
         private void Start_RPC(object sender, RoutedEventArgs e) {
@@ -56,8 +113,25 @@ namespace WpfApp1 {
                 Start.Foreground = Brushes.White;
                 Start.Content = "\uE769";
                 RPC_Active = true;
+                updateRP();
             }
             
+        }
+        private Timer timer1;
+
+        private void updateRP() {
+            //create timer interval = 1s
+            timer1 = new Timer(1000);
+            //
+            timer1.Elapsed += updateRP_Tick;
+            timer1.AutoReset = true;
+            timer1.Enabled = true;
+
+        }
+
+        private void updateRP_Tick(Object source, ElapsedEventArgs e) {
+            Test.Text = s.ToString();
+            s++;
         }
     }
 
