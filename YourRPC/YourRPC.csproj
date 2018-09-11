@@ -148,5 +148,8 @@
   <ItemGroup>
     <Resource Include="DiscordRPC.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="discord-rpc.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

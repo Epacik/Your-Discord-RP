@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YourRPC;
 
 namespace WpfApp1 {
     /// <summary>
@@ -23,7 +24,13 @@ namespace WpfApp1 {
         public MainWindow() {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            Config.clientID = 
+            Config.clientID = YourRPC.Properties.Settings.Default.ClientID;
+            Config.details = YourRPC.Properties.Settings.Default.Details;
+            Config.state = YourRPC.Properties.Settings.Default.State;
+            Config.sm_img = YourRPC.Properties.Settings.Default.sm_img;
+            Config.sm_img_txt = YourRPC.Properties.Settings.Default.sm_img_txt;
+            Config.lg_img = YourRPC.Properties.Settings.Default.lg_img;
+            Config.lg_img_txt = YourRPC.Properties.Settings.Default.lg_img_txt;
         }
 
         private void loadSettings() {
