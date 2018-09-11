@@ -15,7 +15,7 @@
                 &#xE105;
             </Button>
             <Button Foreground="Gray" Background="Transparent" x:Name="Start" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,90,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="Start_RPC" Content="&#xE102;"/>
-            <Rectangle HorizontalAlignment="Left" Height="290" Margin="56,0,-400,0" StrokeThickness="0" VerticalAlignment="Top" Width="400" Fill="{fw:AcrylicBrush grid, TintOpacity=0.3}"/>
+            
             <Button Foreground="Gray" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,155,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="ResetToDefaults" Content="&#xE8EE;"/>
 
         </Grid>
