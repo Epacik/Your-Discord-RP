@@ -7,20 +7,19 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
         Title="Your Discord RP" Width="456.167"
-        fw:PointerTracker.Enabled="True" Height="255.166" ResizeMode="NoResize" >
+        fw:PointerTracker.Enabled="True" Height="291" ResizeMode="NoResize" >
     <Grid HorizontalAlignment="Left" Width="456" Margin="0,0,-6,0" Height="224" VerticalAlignment="Top">
-        <Rectangle HorizontalAlignment="Left" Height="235" Margin="56,0,0,0" StrokeThickness="0" VerticalAlignment="Top" Width="400" Fill="{fw:AcrylicBrush grid, TintOpacity=0.3}"/>
-        <Grid HorizontalAlignment="Left"  Height="224" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.49,0.49">
-            <Button Foreground="Gray" FontFamily="Segoe MDL2 Assets" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="-4,164,0,0" Width="60" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" >
+        <Grid HorizontalAlignment="Left" Width="56" RenderTransformOrigin="0.49,0.49" Height="260" VerticalAlignment="Top" Margin="0,0,0,-36">
+            <Button Foreground="Gray" FontFamily="Segoe MDL2 Assets" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="-4,137,0,63" Width="60" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" Height="60" >
                 &#xE105;
             </Button>
-            <Button Foreground="Gray" Background="Transparent" x:Name="Start" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,34,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="Start_RPC" Content="&#xE102;"/>
+            <Button Foreground="Gray" Background="Transparent" x:Name="Start" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,7,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="Start_RPC" Content="&#xE102;"/>
 
-            <Button Foreground="Gray" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,99,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="ResetToDefaults" Content="&#xE8EE;"/>
-            <Label Content="Label" x:Name="label1" HorizontalAlignment="Left" Margin="0,20,0,0" VerticalAlignment="Top" Width="56"/>
+            <Button Foreground="Gray" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,72,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="ResetToDefaults" Content="&#xE8EE;"/>
+            <Button Foreground="Gray" FontFamily="Segoe MDL2 Assets" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="-4,202,0,0" Width="60" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" Content="&#xE115;" Height="56" VerticalAlignment="Top" />
 
         </Grid>
-        <Rectangle HorizontalAlignment="Left" Height="224" Margin="56,0,0,0" StrokeThickness="0" VerticalAlignment="Top" Width="400" Fill="{fw:AcrylicBrush grid, TintOpacity=0.3}" Opacity="0.4"/>
+        <Rectangle HorizontalAlignment="Left" Margin="56,0,0,-41" StrokeThickness="0" Width="400" Fill="{fw:AcrylicBrush grid, TintOpacity=0.3}" Height="261" VerticalAlignment="Top"/>
         <Label Content="Client ID" HorizontalAlignment="Left" Margin="61,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Details" HorizontalAlignment="Left" Margin="61,41,0,0" VerticalAlignment="Top"/>
         <Label Content="State" HorizontalAlignment="Left" Margin="61,72,0,0" VerticalAlignment="Top"/>

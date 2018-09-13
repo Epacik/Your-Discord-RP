@@ -30,6 +30,7 @@ namespace YourRPC {
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             loadSettings();
         }
+        
 
         private void loadSettings() {
             //load to Config
