@@ -7,33 +7,42 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
         Title="Your Discord RP" Width="456.167"
-        fw:PointerTracker.Enabled="True" Height="291" ResizeMode="NoResize" >
+        fw:PointerTracker.Enabled="True" Height="356" ResizeMode="NoResize" >
     <Grid HorizontalAlignment="Left" Width="456" Margin="0,0,-6,0" Height="224" VerticalAlignment="Top">
-        <Grid HorizontalAlignment="Left" Width="56" RenderTransformOrigin="0.49,0.49" Height="260" VerticalAlignment="Top" Margin="0,0,0,-36">
-            <Button Foreground="Gray" FontFamily="Segoe MDL2 Assets" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="-4,137,0,63" Width="60" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" Height="60" >
-                &#xE105;
-            </Button>
-            <Button Foreground="Gray" Background="Transparent" x:Name="Start" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,7,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="Start_RPC" Content="&#xE102;"/>
+        <fw:AcrylicPanel x:Name="Bar"  HorizontalAlignment="Left" Width="455" RenderTransformOrigin="0.49,0.49" Height="325" VerticalAlignment="Top" TintOpacity="0.1" Margin="0,0,0,-101">
+            <fw:AcrylicPanel.Target>
+                <fw:DropShadowPanel/>
+            </fw:AcrylicPanel.Target>
+            <Grid HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="445">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Foreground="Black" FontFamily="Segoe MDL2 Assets" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="119,0,0,0" Width="57" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" Height="57" VerticalAlignment="Top" Grid.Column="1" >
+                    &#xE105;
+                </Button>
+                <Button Foreground="Black" Background="Transparent" x:Name="Start" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Width="57" FontSize="36" OpacityMask="#FFA8A8A8" Click="Start_RPC" Content="&#xE102;" Margin="0,0,0,3" Grid.ColumnSpan="2"/>
 
-            <Button Foreground="Gray" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="-4,72,0,0"  VerticalAlignment="Top" Width="60" Height="60" FontSize="36" OpacityMask="#FFA8A8A8" Click="ResetToDefaults" Content="&#xE8EE;"/>
-            <Button Foreground="Gray" FontFamily="Segoe MDL2 Assets" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="-4,202,0,0" Width="60" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" Content="&#xE115;" Height="56" VerticalAlignment="Top" />
+                <Button Foreground="Black" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="57,0,0,0"  VerticalAlignment="Top" Width="57" Height="57" FontSize="36" OpacityMask="#FFA8A8A8" Click="Update" Content="&#xE8EE;"/>
+                <Button Foreground="Black" FontFamily="Segoe MDL2 Assets" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="176,0,-10,0" Width="57" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" Content="&#xE115;" Height="57" VerticalAlignment="Top" Grid.Column="1" />
 
-        </Grid>
-        <Rectangle HorizontalAlignment="Left" Margin="56,0,0,-41" StrokeThickness="0" Width="400" Fill="{fw:AcrylicBrush grid, TintOpacity=0.3}" Height="261" VerticalAlignment="Top"/>
-        <Label Content="Client ID" HorizontalAlignment="Left" Margin="61,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Details" HorizontalAlignment="Left" Margin="61,41,0,0" VerticalAlignment="Top"/>
-        <Label Content="State" HorizontalAlignment="Left" Margin="61,72,0,0" VerticalAlignment="Top"/>
-        <Label Content="Small image name" HorizontalAlignment="Left" Margin="61,103,0,0" VerticalAlignment="Top"/>
-        <Label Content="Small image description"  HorizontalAlignment="Left" Margin="61,134,0,0" VerticalAlignment="Top"/>
-        <Label Content="Large image name" HorizontalAlignment="Left" Margin="61,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.851,0.731"/>
-        <Label Content="Large image description"  HorizontalAlignment="Left" Margin="61,196,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="ClientID" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,10,0,0" TextWrapping="Wrap" Text="488870967217487872" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Details" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,41,0,0" TextWrapping="Wrap" Text="Make your own" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="State" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,72,0,0" TextWrapping="Wrap" Text="custom Rich Presence" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Small_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,134,0,0" TextWrapping="Wrap" Text="Your Discord RP" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Small_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,103,0,0" TextWrapping="Wrap" Text="rich_presence" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Large_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,165,0,0" TextWrapping="Wrap" Text="discord-logo-white" VerticalAlignment="Top" Width="219"/>
-        <TextBox x:Name="Large_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="227,196,0,0" TextWrapping="Wrap" Text="Discord" VerticalAlignment="Top" Width="219"/>
+            </Grid>
+
+        </fw:AcrylicPanel>
+        <Label Content="Client ID" HorizontalAlignment="Left" Margin="8,71,0,0" VerticalAlignment="Top"/>
+        <Label Content="Details" HorizontalAlignment="Left" Margin="8,102,0,0" VerticalAlignment="Top"/>
+        <Label Content="State" HorizontalAlignment="Left" Margin="8,133,0,0" VerticalAlignment="Top"/>
+        <Label Content="Small image name" HorizontalAlignment="Left" Margin="8,164,0,0" VerticalAlignment="Top"/>
+        <Label Content="Small image description"  HorizontalAlignment="Left" Margin="8,195,0,0" VerticalAlignment="Top"/>
+        <Label Content="Large image name" HorizontalAlignment="Left" Margin="8,226,0,-28" VerticalAlignment="Top" RenderTransformOrigin="0.851,0.731"/>
+        <Label Content="Large image description"  HorizontalAlignment="Left" Margin="8,257,0,-59" VerticalAlignment="Top"/>
+        <TextBox x:Name="ClientID" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,71,0,0" TextWrapping="Wrap" Text="488870967217487872" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Details" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,102,0,0" TextWrapping="Wrap" Text="Make your own" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="State" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,133,0,0" TextWrapping="Wrap" Text="custom Rich Presence" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Small_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,195,0,0" TextWrapping="Wrap" Text="Your Discord RP" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Small_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,164,0,0" TextWrapping="Wrap" Text="rich_presence" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Large_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,226,0,-25" TextWrapping="Wrap" Text="discord-logo-white" VerticalAlignment="Top" Width="219"/>
+        <TextBox x:Name="Large_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,257,0,-56" TextWrapping="Wrap" Text="Discord" VerticalAlignment="Top" Width="219"/>
 
 
 

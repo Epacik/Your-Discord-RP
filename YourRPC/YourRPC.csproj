@@ -92,7 +92,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Discord-Rpc.cs" />
     <Compile Include="DiscordRpc.cs" />
     <Compile Include="Settings.cs" />
     <Page Include="Fonts.xaml">

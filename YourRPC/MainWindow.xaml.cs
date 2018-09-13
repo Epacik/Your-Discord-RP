@@ -21,6 +21,10 @@ namespace YourRPC {
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     public partial class MainWindow {
+
+        private DiscordRpc.RichPresence presence;
+        DiscordRpc.EventHandlers handlers;
+
         private bool RPC_Active = false;
         private int s = 0;
         //make config object
@@ -34,13 +38,13 @@ namespace YourRPC {
 
         private void loadSettings() {
             //load to Config
-            Config.clientID = YourRPC.Properties.Settings.Default.ClientID;
-            Config.details = YourRPC.Properties.Settings.Default.Details;
-            Config.state = YourRPC.Properties.Settings.Default.State;
-            Config.sm_img = YourRPC.Properties.Settings.Default.sm_img;
-            Config.sm_img_txt = YourRPC.Properties.Settings.Default.sm_img_txt;
-            Config.lg_img = YourRPC.Properties.Settings.Default.lg_img;
-            Config.lg_img_txt = YourRPC.Properties.Settings.Default.lg_img_txt;
+            Config.clientID = Properties.Settings.Default.ClientID;
+            Config.details = Properties.Settings.Default.Details;
+            Config.state = Properties.Settings.Default.State;
+            Config.sm_img = Properties.Settings.Default.sm_img;
+            Config.sm_img_txt = Properties.Settings.Default.sm_img_txt;
+            Config.lg_img = Properties.Settings.Default.lg_img;
+            Config.lg_img_txt = Properties.Settings.Default.lg_img_txt;
 
             //set fields in window
             ClientID.Text = Config.clientID;
@@ -104,19 +108,76 @@ namespace YourRPC {
             Large_Image_Desc.Text = Config.lg_img_txt;
         }
 
+        public void ToConfig() {
+            Config.clientID = ClientID.Text;
+            Config.details = Details.Text;
+            Config.state = State.Text;
+            Config.sm_img = Small_Image.Text;
+            Config.sm_img_txt = Small_Image_Desc.Text;
+            Config.lg_img = Large_Image.Text;
+            Config.lg_img_txt = Large_Image_Desc.Text;
+        }
+
         private void Start_RPC(object sender, RoutedEventArgs e) {
             if (RPC_Active) {
                 Start.Background = Brushes.Transparent;
-                Start.Foreground = Brushes.Gray;
+                Start.Foreground = Brushes.Black;
                 Start.Content = "\uE768";
                 RPC_Active = false;
+                Shutdown();
             } else {
+                long a;
+                if(!long.TryParse(ClientID.Text, out a)) {
+                    return;
+                }
+
                 Start.Background = SystemParameters.WindowGlassBrush;
                 Start.Foreground = Brushes.White;
-                Start.Content = "\uE769";
+                Start.Content = "\uE71A";
                 RPC_Active = true;
+                Initialize(ClientID.Text);
             }
+
             
+        }
+
+        private void Shutdown() {
+            DiscordRpc.Shutdown();
+
+            this.SetStatusBarMessage("Shuted down.");
+        }
+
+        /// <summary>
+		/// Initialize the RPC.
+		/// </summary>
+		/// <param name="clientId"></param>
+		private void Initialize(string clientId) {
+            handlers = new DiscordRpc.EventHandlers();
+
+            //handlers.readyCallback = ReadyCallback;
+            //handlers.disconnectedCallback += DisconnectedCallback;
+            handlers.errorCallback += ErrorCallback;
+
+            DiscordRpc.Initialize(clientId, ref handlers, true, null);
+            
+        }
+
+        private void ErrorCallback(int errorCode, string message) {
+            
+        }
+
+        private void SetStatusBarMessage(string message) {
+            //this.Label_Status.Content = message;
+        }
+
+        private void Update(object sender, RoutedEventArgs e) {
+            presence.details = Details.Text;
+            presence.state = State.Text;
+            presence.smallImageKey = Small_Image.Text;
+            presence.smallImageText = Small_Image_Desc.Text;
+            presence.largeImageKey = Large_Image.Text;
+            presence.largeImageText = Large_Image_Desc.Text;
+            DiscordRpc.UpdatePresence(ref presence);
         }
     }
 
