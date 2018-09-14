@@ -25,9 +25,15 @@ namespace YourRPC {
 
                 this.Shutdown();
             }
+            
+            if (IsWindows10()) {
+
+            } else {
+
+            }
         }
 
-        static bool IsWindows10() {
+        public static bool IsWindows10() {
             var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
 
             string productName = (string)reg.GetValue("ProductName");

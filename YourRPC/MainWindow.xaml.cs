@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Timers;
 using System.Drawing;
 using System.IO;
+using Microsoft.Win32;
 
 namespace YourRPC {
     /// <summary>
@@ -33,6 +34,10 @@ namespace YourRPC {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             loadSettings();
+            if (!IsWindows10()) {
+                MainWindow.SetTintOpacity(this, 1);
+                MainWindow.SetNoiseOpacity(this, 0);
+            }
         }
         
 
@@ -107,21 +112,12 @@ namespace YourRPC {
             Large_Image.Text = Config.lg_img;
             Large_Image_Desc.Text = Config.lg_img_txt;
         }
-
-        public void ToConfig() {
-            Config.clientID = ClientID.Text;
-            Config.details = Details.Text;
-            Config.state = State.Text;
-            Config.sm_img = Small_Image.Text;
-            Config.sm_img_txt = Small_Image_Desc.Text;
-            Config.lg_img = Large_Image.Text;
-            Config.lg_img_txt = Large_Image_Desc.Text;
-        }
+       
 
         private void Start_RPC(object sender, RoutedEventArgs e) {
             if (RPC_Active) {
-                Start.Background = Brushes.Transparent;
-                Start.Foreground = Brushes.Black;
+                Start.Background = System.Windows.Media.Brushes.Transparent;
+                Start.Foreground = System.Windows.Media.Brushes.Black;
                 Start.Content = "\uE768";
                 RPC_Active = false;
                 Shutdown();
@@ -132,7 +128,7 @@ namespace YourRPC {
                 }
 
                 Start.Background = SystemParameters.WindowGlassBrush;
-                Start.Foreground = Brushes.White;
+                Start.Foreground = System.Windows.Media.Brushes.White;
                 Start.Content = "\uE71A";
                 RPC_Active = true;
                 Initialize(ClientID.Text);
@@ -159,6 +155,7 @@ namespace YourRPC {
             handlers.errorCallback += ErrorCallback;
 
             DiscordRpc.Initialize(clientId, ref handlers, true, null);
+            Update(null, null);
             
         }
 
@@ -178,6 +175,19 @@ namespace YourRPC {
             presence.largeImageKey = Large_Image.Text;
             presence.largeImageText = Large_Image_Desc.Text;
             DiscordRpc.UpdatePresence(ref presence);
+        }
+
+        private void OpenSettings(object sender, RoutedEventArgs e) {
+            SettingsWindow settingsWin = new SettingsWindow();
+            settingsWin.ShowDialog();
+        }
+
+        public static bool IsWindows10() {
+            var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+
+            string productName = (string)reg.GetValue("ProductName");
+
+            return productName.StartsWith("Windows 10");
         }
     }
 

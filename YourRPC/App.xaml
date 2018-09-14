@@ -1,7 +1,8 @@
 ﻿<Application x:Class="YourRPC.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:YourRPC">
+             xmlns:local="clr-namespace:YourRPC"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         
         <ResourceDictionary>
