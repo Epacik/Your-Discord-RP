@@ -7,7 +7,8 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
         Title="Your Discord RP" Width="456.167"
-        fw:PointerTracker.Enabled="True" Height="356" ResizeMode="NoResize">
+        fw:PointerTracker.Enabled="True" Height="356" ResizeMode="NoResize"
+        MouseEnter="ChFontColor">
     <Window.Resources>
         <SolidColorBrush x:Key="DynamicFG" Color="Black"/>
     </Window.Resources>

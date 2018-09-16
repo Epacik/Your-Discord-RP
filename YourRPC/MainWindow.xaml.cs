@@ -38,9 +38,7 @@ namespace YourRPC {
                 MainWindow.SetTintOpacity(this, 1);
                 MainWindow.SetNoiseOpacity(this, 0);
             }
-            if(IsDarkmode()) {
-                this.Resources["DynamicFG"] = new SolidColorBrush(Colors.White);
-            }
+            ChFontColor(null, null);
         }
         
 
@@ -185,6 +183,14 @@ namespace YourRPC {
             settingsWin.ShowDialog();
         }
 
+        public void ChFontColor(object sender, RoutedEventArgs e) {
+            if (IsDarkmode() && IsWindows10()) {
+                this.Resources["DynamicFG"] = new SolidColorBrush(Colors.White);
+            } else {
+                this.Resources["DynamicFG"] = new SolidColorBrush(Colors.Black);
+            }
+        }
+
         public static bool IsDarkmode() {
             RegistryKey rkSubKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", false);
             if (rkSubKey == null) {
@@ -202,6 +208,8 @@ namespace YourRPC {
                     return false;
             }
         }
+
+        
 
         public static bool IsWindows10() {
             var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
