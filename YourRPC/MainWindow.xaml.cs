@@ -38,6 +38,9 @@ namespace YourRPC {
                 MainWindow.SetTintOpacity(this, 1);
                 MainWindow.SetNoiseOpacity(this, 0);
             }
+            if(IsDarkmode()) {
+                this.Resources["DynamicFG"] = new SolidColorBrush(Colors.White);
+            }
         }
         
 
@@ -117,7 +120,7 @@ namespace YourRPC {
         private void Start_RPC(object sender, RoutedEventArgs e) {
             if (RPC_Active) {
                 Start.Background = System.Windows.Media.Brushes.Transparent;
-                Start.Foreground = System.Windows.Media.Brushes.Black;
+                Start.Foreground = (SolidColorBrush)FindResource("DynamicFG");
                 Start.Content = "\uE768";
                 RPC_Active = false;
                 Shutdown();
@@ -182,6 +185,24 @@ namespace YourRPC {
             settingsWin.ShowDialog();
         }
 
+        public static bool IsDarkmode() {
+            RegistryKey rkSubKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", false);
+            if (rkSubKey == null) {
+                rkSubKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize", false);
+                if (rkSubKey == null) return false;
+            }
+            string LightMode = rkSubKey.GetValue("AppsUseLightTheme").ToString();
+
+            switch (LightMode) {
+                case "1":
+                    return false;
+                case "0":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
         public static bool IsWindows10() {
             var reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
 
@@ -211,3 +232,5 @@ namespace YourRPC {
         public const string Lg_img_txt = "Discord";
     }
 }
+
+

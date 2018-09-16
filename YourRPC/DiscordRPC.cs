@@ -1,5 +1,4 @@
 ﻿using System.Runtime.InteropServices;
-using YourRPC;
 
 namespace YourRPC {
     // https://github.com/discordapp/discord-rpc/blob/master/examples/button-clicker/Assets/DiscordRpc.cs
