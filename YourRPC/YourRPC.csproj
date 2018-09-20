@@ -187,6 +187,7 @@
     <Resource Include="DiscordRPC.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="discord-rpc-w32.dll" />
     <Content Include="discord-rpc.dll" />
     <Content Include="rpc\DiscordRPC.dll" />
     <Content Include="rpc\DiscordRPC.pdb" />
