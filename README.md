@@ -16,7 +16,7 @@ It's simple:
 
    You can save an status preset by clicking... well that floppy disk icon...
 
-   If you want to change your status, just change text in application and press an refresh button.
+   If you want to change your status, just change text in application window and press a refresh button.
 
 
 
