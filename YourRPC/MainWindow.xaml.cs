@@ -38,9 +38,16 @@ namespace YourRPC {
                 MainWindow.SetTintOpacity(this, 1);
                 MainWindow.SetNoiseOpacity(this, 0);
             }
+            SourceChord.FluentWPF.SystemTheme.ThemeChanged += this.SystemTheme_ThemeChanged;
+            ChFontColor(null, null);
+
+
+        }
+
+        private void SystemTheme_ThemeChanged(object sender, EventArgs e)
+        {
             ChFontColor(null, null);
         }
-        
 
         private void loadSettings() {
             //load to Config

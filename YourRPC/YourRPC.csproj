@@ -58,10 +58,10 @@
     <ApplicationIcon>DiscordRPC.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>0EEF8156F9C6EB6AB5A02F0D7B6C469A84EF03AF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2669229697192DE5A961D46DB538020F0D51FEB7</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>YourRPC_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>YourRPC_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -159,6 +159,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Resources\SegMDL2.ttf" />
+    <None Include="YourRPC_1_TemporaryKey.pfx" />
     <None Include="YourRPC_TemporaryKey.pfx" />
     <Resource Include="Fonts\SegMDL2.ttf" />
     <EmbeddedResource Include="Fonts\Merienda-Regular.ttf" />
@@ -190,7 +192,6 @@
     <Content Include="discord-rpc-w32.dll" />
     <Content Include="discord-rpc.dll" />
     <Content Include="rpc\DiscordRPC.dll" />
-    <Content Include="rpc\DiscordRPC.pdb" />
     <Resource Include="rpc\DiscordRPC.xml" />
     <Content Include="rpc\Newtonsoft.Json.dll" />
     <Resource Include="rpc\Newtonsoft.Json.xml" />
