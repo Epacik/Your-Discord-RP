@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>rpc_test_linux</RootNamespace>
+    <Platforms>AnyCPU;x86;x64</Platforms>
+  </PropertyGroup>
+
+</Project>
