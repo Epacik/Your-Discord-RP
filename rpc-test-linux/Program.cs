@@ -4,7 +4,7 @@ namespace rpc_test_linux
 {
     class Program
     {
-        public const string DLL = "discord-rpc-w32";
+        public const string DLL = "discord-rpc";
 
 
 
