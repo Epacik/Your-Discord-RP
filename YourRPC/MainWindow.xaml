@@ -7,7 +7,7 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
         Title="Your Discord RP" Width="456.167"
-        fw:PointerTracker.Enabled="True" Height="356" ResizeMode="NoResize"
+        fw:PointerTracker.Enabled="True" Height="356" TintOpacity="0.85" ResizeMode="CanMinimize"
         MouseEnter="ChFontColor">
     <Window.Resources>
         <SolidColorBrush x:Key="DynamicFG" Color="Black"/>
@@ -21,12 +21,17 @@
     <fw:AcrylicWindow.BindingGroup>
         <BindingGroup/>
     </fw:AcrylicWindow.BindingGroup>
-    <Grid HorizontalAlignment="Left" Width="456" Margin="0,0,-6,0" Height="224" VerticalAlignment="Top">
+    <Grid HorizontalAlignment="Left" Width="456" Margin="0,0,-6,0" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="49*"/>
             <ColumnDefinition Width="27*"/>
         </Grid.ColumnDefinitions>
-        <fw:AcrylicPanel x:Name="Bar"  HorizontalAlignment="Left" Width="459" RenderTransformOrigin="0.49,0.49" Height="327" VerticalAlignment="Top" TintOpacity="0.6" NoiseOpacity="0" Margin="0,0,-3,-103" Grid.ColumnSpan="2" TintColor="#19FFFFFF" Foreground="White">
+        <fw:AcrylicPanel x:Name="Bar"  HorizontalAlignment="Left" Width="459" RenderTransformOrigin="0.49,0.49" Height="327" VerticalAlignment="Top" TintOpacity="0.6" NoiseOpacity="0" Margin="0,0,-3,-103" Grid.ColumnSpan="2" TintColor="#19FFFFFF" Foreground="White" Grid.RowSpan="3">
             <fw:AcrylicPanel.Source>
                 <fw:AcrylicPanel>
                 </fw:AcrylicPanel>
@@ -40,31 +45,34 @@
                     <ColumnDefinition Width="174*"/>
                     <ColumnDefinition Width="223*"/>
                 </Grid.ColumnDefinitions>
-                <Button Foreground="{DynamicResource DynamicFG}" FontFamily="{DynamicResource SegoeAssets}" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="119,0,0,0" Width="57" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" Height="57" VerticalAlignment="Top" Grid.Column="2" >
-                    &#xE105;
-                </Button>
-                <Button Foreground="{DynamicResource DynamicFG}" Background="Transparent" x:Name="Start" Style="{StaticResource ButtonRevealStyle}" FontFamily="{DynamicResource SegoeAssets}" HorizontalAlignment="Left" Width="57" FontSize="36" OpacityMask="#FFA8A8A8" Click="Start_RPC" Content="&#xE102;" Margin="0,0,0,3" Grid.ColumnSpan="2"/>
-
-                <Button Foreground="{DynamicResource DynamicFG}" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" FontFamily="{DynamicResource SegoeAssets}" HorizontalAlignment="Left" Margin="9,0,0,0"  VerticalAlignment="Top" Width="57" Height="57" FontSize="36" OpacityMask="#FFA8A8A8" Click="Update" Content="&#xE8EE;" Grid.Column="1"/>
-                <Button Foreground="#FFA4A4A4" FontFamily="{DynamicResource SegoeAssets}" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="176,0,-10,0" Width="57" FontSize="36" Click="OpenSettings"  FontStyle="Normal" FontWeight="Regular" Content="&#xE115;" Height="57" VerticalAlignment="Top" Grid.Column="2" IsEnabled="False" />
 
             </Grid>
 
         </fw:AcrylicPanel>
-        <Label Foreground="{DynamicResource DynamicFG}" Content="Client ID" HorizontalAlignment="Left" Margin="8,71,0,0" VerticalAlignment="Top"/>
-        <Label Foreground="{DynamicResource DynamicFG}" Content="Details" HorizontalAlignment="Left" Margin="8,102,0,0" VerticalAlignment="Top"/>
-        <Label Foreground="{DynamicResource DynamicFG}" Content="State" HorizontalAlignment="Left" Margin="8,133,0,0" VerticalAlignment="Top"/>
-        <Label Foreground="{DynamicResource DynamicFG}" Content="Small image name" HorizontalAlignment="Left" Margin="8,164,0,0" VerticalAlignment="Top"/>
-        <Label Foreground="{DynamicResource DynamicFG}" Content="Small image description"  HorizontalAlignment="Left" Margin="8,195,0,0" VerticalAlignment="Top"/>
-        <Label Foreground="{DynamicResource DynamicFG}" Content="Large image name" HorizontalAlignment="Left" Margin="8,226,0,-28" VerticalAlignment="Top" RenderTransformOrigin="0.851,0.731"/>
-        <Label Foreground="{DynamicResource DynamicFG}" Content="Large image description"  HorizontalAlignment="Left" Margin="8,257,0,-59" VerticalAlignment="Top" />
-        <TextBox x:Name="ClientID" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,71,0,0" TextWrapping="Wrap" Text="488870967217487872" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="Details" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,102,0,0" TextWrapping="Wrap" Text="Make your own" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="State" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,133,0,0" TextWrapping="Wrap" Text="custom Rich Presence" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="Small_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,195,0,0" TextWrapping="Wrap" Text="Your Discord RP" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="Small_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,164,0,0" TextWrapping="Wrap" Text="rich_presence" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="Large_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,226,0,-25" TextWrapping="Wrap" Text="discord-logo-white" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="Large_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="23" Margin="225,257,0,-56" TextWrapping="Wrap" Text="Discord" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2"/>
+        <Label Foreground="{DynamicResource DynamicFG}" Content="Client ID" HorizontalAlignment="Left" Margin="8,2,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="55"/>
+        <Label Foreground="{DynamicResource DynamicFG}" Content="Details" HorizontalAlignment="Left" Margin="8,33,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="46"/>
+        <Label Foreground="{DynamicResource DynamicFG}" Content="State" HorizontalAlignment="Left" Margin="8,64,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="37"/>
+        <Label Foreground="{DynamicResource DynamicFG}" Content="Small image name" HorizontalAlignment="Left" Margin="8,95,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="107"/>
+        <Label Foreground="{DynamicResource DynamicFG}" Content="Small image description"  HorizontalAlignment="Left" Margin="8,126,0,-1" VerticalAlignment="Top" Grid.Row="2" Height="30" Width="137"/>
+        <Label Foreground="{DynamicResource DynamicFG}" Content="Large image name" HorizontalAlignment="Left" Margin="8,157,0,-32" VerticalAlignment="Top" RenderTransformOrigin="0.851,0.731" Grid.Row="2" Height="26" Width="108"/>
+        <Label Foreground="{DynamicResource DynamicFG}" Content="Large image description"  HorizontalAlignment="Left" Margin="8,188,0,-63" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="137" />
+        <TextBox x:Name="ClientID" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="30" Margin="225,2,0,0" TextWrapping="Wrap" Text="488870967217487872" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <TextBox x:Name="Details" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="30" Margin="225,33,0,0" TextWrapping="Wrap" Text="Make your own" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <TextBox x:Name="State" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="30" Margin="225,64,0,0" TextWrapping="Wrap" Text="custom Rich Presence" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <TextBox x:Name="Small_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="30" Margin="225,126,0,0" TextWrapping="Wrap" Text="Your Discord RP" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <TextBox x:Name="Small_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="30" Margin="225,95,0,0" TextWrapping="Wrap" Text="rich_presence" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <TextBox x:Name="Large_Image" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="30" Margin="225,157,0,-29" TextWrapping="Wrap" Text="discord-logo-white" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <TextBox x:Name="Large_Image_Desc" HorizontalAlignment="Left" Style="{StaticResource TextBoxRevealStyle}" Height="30" Margin="225,188,0,-60" TextWrapping="Wrap" Text="Discord" VerticalAlignment="Top" Width="219" Grid.ColumnSpan="2" Grid.Row="2"/>
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Height="51" VerticalAlignment="Top" Width="456" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Button Foreground="{DynamicResource DynamicFG}" Background="Transparent" x:Name="Start" Style="{StaticResource ButtonRevealStyle}" FontFamily="{DynamicResource SegoeAssets}" HorizontalAlignment="Left" Width="50" FontSize="36" OpacityMask="#FFA8A8A8" Click="Start_RPC" Content="&#xE102;"  Grid.ColumnSpan="2"/>
+
+            <Button Content="&#xE105;" Foreground="{DynamicResource DynamicFG}" FontFamily="{DynamicResource SegoeAssets}" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Width="50" FontSize="36" Click="SaveSettings"  FontStyle="Normal" FontWeight="Regular" Height="50" VerticalAlignment="Top" Grid.Column="1" />
+
+
+            <Button Foreground="{DynamicResource DynamicFG}" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" FontFamily="{DynamicResource SegoeAssets}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="50" Height="50" FontSize="36" OpacityMask="#FFA8A8A8" Click="Update" Content="&#xE8EE;" Grid.Column="1"/>
+            <Button Foreground="#FFA4A4A4" Visibility="Collapsed" FontFamily="{DynamicResource SegoeAssets}" Background="Transparent" Style="{StaticResource ButtonRevealStyle}" HorizontalAlignment="Left" Margin="176,0,-10,0" Width="57" FontSize="36" Click="OpenSettings"  FontStyle="Normal" FontWeight="Regular" Content="&#xE115;" Height="57" VerticalAlignment="Top" Grid.Column="2" IsEnabled="False" />
+
+        </StackPanel>
 
 
 

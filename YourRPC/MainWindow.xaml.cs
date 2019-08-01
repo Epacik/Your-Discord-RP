@@ -35,8 +35,8 @@ namespace YourRPC {
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             loadSettings();
             if (!IsWindows10()) {
-                MainWindow.SetTintOpacity(this, 1);
-                MainWindow.SetNoiseOpacity(this, 0);
+                //MainWindow.SetTintOpacity(this, 1);
+                //MainWindow.SetNoiseOpacity(this, 0);
             }
             SourceChord.FluentWPF.SystemTheme.ThemeChanged += this.SystemTheme_ThemeChanged;
             ChFontColor(null, null);
