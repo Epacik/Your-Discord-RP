@@ -1,2 +1,2 @@
 #!/bin/bash
-cp -r "$1" "$2"
+cp -r "$1Deps/libdiscord-rpc.so" "$2"
