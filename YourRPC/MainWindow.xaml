@@ -7,6 +7,7 @@
         xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
         Title="Your Discord RP" Width="456.167"
+        WindowStartupLocation="CenterScreen"
         fw:PointerTracker.Enabled="True" Height="356" TintOpacity="0.85" ResizeMode="CanMinimize"
         MouseEnter="ChFontColor">
     <Window.Resources>

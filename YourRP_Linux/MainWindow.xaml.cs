@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Avalonia.Media;
 using Newtonsoft.Json;
 using YourRPC;
+using MessageBox.Avalonia;
 
 namespace YourRP_Linux
 {
@@ -103,6 +104,13 @@ namespace YourRP_Linux
             }
             else
             {
+                long a = 0;
+                
+                if (!long.TryParse(this.Get<TextBox>("ClientIDInput").Text, out a))
+                {
+                    MessageBoxManager.Instance.Show("Invalid ID", "The Client ID you provided isn't valid,\nplease check it and try again");
+                    return;
+                }
                 InitializePresence(this.Get<TextBox>("ClientIDInput").Text);
                 
                 this.Get<Button>("ToggleButton").BorderBrush = Brushes.Green;

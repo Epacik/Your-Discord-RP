@@ -16,6 +16,7 @@ using System.Timers;
 using System.Drawing;
 using System.IO;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 
 namespace YourRPC {
     /// <summary>
@@ -49,6 +50,10 @@ namespace YourRPC {
             ChFontColor(null, null);
         }
 
+        private static string SettingsDirPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            ".YourRP");
+        private static string SettingsPath = System.IO.Path.Combine(SettingsDirPath, "config.json");
+
         private void loadSettings() {
             //load to Config
             Config.clientID = Properties.Settings.Default.ClientID;
@@ -80,6 +85,20 @@ namespace YourRPC {
             Config.lg_img_txt = Large_Image_Desc.Text;
 
             //save to file
+
+            if (!Directory.Exists(SettingsDirPath))
+            {
+                Directory.CreateDirectory(SettingsDirPath);
+            }
+            if (!File.Exists(SettingsPath))
+            {
+                File.Create(SettingsPath);
+            }
+
+            RefreshPresenceContents();
+            FileStream file = File.OpenWrite(SettingsPath);
+            file.Write(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(presence, Formatting.Indented)), 0, Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(presence, Formatting.Indented)).Length);
+
             YourRPC.Properties.Settings.Default.ClientID = Config.clientID;
             YourRPC.Properties.Settings.Default.Details = Config.details;
             YourRPC.Properties.Settings.Default.State = Config.state;
@@ -90,37 +109,15 @@ namespace YourRPC {
             YourRPC.Properties.Settings.Default.Save();
         }
 
-        private void ResetToDefaults(object sender, RoutedEventArgs e) {
-            
-            //save to config
-            Config.clientID = defaultConfig.ClientID;
-            Config.details = defaultConfig.Details;
-            Config.state = defaultConfig.State;
-            Config.sm_img = defaultConfig.Sm_img;
-            Config.sm_img_txt = defaultConfig.Sm_img_txt;
-            Config.lg_img = defaultConfig.Lg_img;
-            Config.lg_img_txt = defaultConfig.Lg_img_txt;
-
-            //save to file
-            YourRPC.Properties.Settings.Default.ClientID = Config.clientID;
-            YourRPC.Properties.Settings.Default.Details = Config.details;
-            YourRPC.Properties.Settings.Default.State = Config.state;
-            YourRPC.Properties.Settings.Default.sm_img = Config.sm_img;
-            YourRPC.Properties.Settings.Default.sm_img_txt = Config.sm_img_txt;
-            YourRPC.Properties.Settings.Default.lg_img = Config.lg_img;
-            YourRPC.Properties.Settings.Default.lg_img_txt = Config.lg_img_txt;
-            YourRPC.Properties.Settings.Default.Save();
-
-            //set fields in window
-            ClientID.Text = Config.clientID;
-            Details.Text = Config.details;
-            State.Text = Config.state;
-            Small_Image.Text = Config.sm_img;
-            Small_Image_Desc.Text = Config.sm_img_txt;
-            Large_Image.Text = Config.lg_img;
-            Large_Image_Desc.Text = Config.lg_img_txt;
+        private void RefreshPresenceContents()
+        {
+            presence.details = Details.Text;
+            presence.state = State.Text;
+            presence.smallImageKey = Small_Image.Text;
+            presence.smallImageText = Small_Image_Desc.Text;
+            presence.largeImageKey = Large_Image.Text;
+            presence.largeImageText = Large_Image_Desc.Text;
         }
-       
 
         private void Start_RPC(object sender, RoutedEventArgs e) {
             if (RPC_Active) {
@@ -132,6 +129,7 @@ namespace YourRPC {
             } else {
                 long a;
                 if(!long.TryParse(ClientID.Text, out a)) {
+                    MessageBox.Show("")
                     return;
                 }
 
@@ -176,12 +174,7 @@ namespace YourRPC {
         }
 
         private void Update(object sender, RoutedEventArgs e) {
-            presence.details = Details.Text;
-            presence.state = State.Text;
-            presence.smallImageKey = Small_Image.Text;
-            presence.smallImageText = Small_Image_Desc.Text;
-            presence.largeImageKey = Large_Image.Text;
-            presence.largeImageText = Large_Image_Desc.Text;
+            RefreshPresenceContents();
             DiscordRpc.UpdatePresence(ref presence);
         }
 
