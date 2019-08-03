@@ -17,6 +17,7 @@ using System.Drawing;
 using System.IO;
 using Microsoft.Win32;
 using Newtonsoft.Json;
+using DiscordRPC;
 
 namespace YourRPC {
     /// <summary>
@@ -24,23 +25,35 @@ namespace YourRPC {
     /// </summary>
     public partial class MainWindow {
 
-        private DiscordRpc.RichPresence presence;
+        static private DiscordRpc.RichPresence presence = new DiscordRpc.RichPresence();
         DiscordRpc.EventHandlers handlers;
+
+        Config cfg;
 
         private bool RPC_Active = false;
         private int s = 0;
         //make config object
-        config Config = new config();
         public MainWindow() {
             InitializeComponent();
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            cfg = new Config();
             loadSettings();
             if (!IsWindows10()) {
                 //MainWindow.SetTintOpacity(this, 1);
                 //MainWindow.SetNoiseOpacity(this, 0);
             }
+
+            if (!Directory.Exists(SettingsDirPath))
+            {
+                Directory.CreateDirectory(SettingsDirPath);
+            }
+            if (!File.Exists(SettingsPath))
+            {
+                File.Create(SettingsPath);
+            }
+
             SourceChord.FluentWPF.SystemTheme.ThemeChanged += this.SystemTheme_ThemeChanged;
             ChFontColor(null, null);
+
 
 
         }
@@ -56,34 +69,32 @@ namespace YourRPC {
 
         private void loadSettings() {
             //load to Config
-            Config.clientID = Properties.Settings.Default.ClientID;
-            Config.details = Properties.Settings.Default.Details;
-            Config.state = Properties.Settings.Default.State;
-            Config.sm_img = Properties.Settings.Default.sm_img;
-            Config.sm_img_txt = Properties.Settings.Default.sm_img_txt;
-            Config.lg_img = Properties.Settings.Default.lg_img;
-            Config.lg_img_txt = Properties.Settings.Default.lg_img_txt;
+            if (Directory.Exists(SettingsDirPath) && File.Exists(SettingsPath))
+            {
+                try
+                {
+                    StreamReader c = File.OpenText(SettingsPath);
+                    cfg = JsonConvert.DeserializeObject<Config>(c.ReadToEnd());
 
-            //set fields in window
-            ClientID.Text = Config.clientID;
-            Details.Text = Config.details;
-            State.Text = Config.state;
-            Small_Image.Text = Config.sm_img;
-            Small_Image_Desc.Text = Config.sm_img_txt;
-            Large_Image.Text = Config.lg_img;
-            Large_Image_Desc.Text = Config.lg_img_txt;
+                    ClientID.Text = cfg.clientID;
+                    Details.Text = cfg.presence.details;
+                    State.Text = cfg.presence.state;
+                    Small_Image.Text = cfg.presence.smallImageKey;
+                    Small_Image_Desc.Text = cfg.presence.smallImageText;
+                    Large_Image.Text = cfg.presence.largeImageKey;
+                    Large_Image_Desc.Text = cfg.presence.largeImageText;
+                    presence = cfg.presence;
+                }
+                catch (Exception e)
+                {
+
+                }
+
+            }
+
         }
 
         private void SaveSettings(object sender, RoutedEventArgs e) {
-            //save to config
-            Config.clientID = ClientID.Text;
-            Config.details = Details.Text;
-            Config.state = State.Text;
-            Config.sm_img = Small_Image.Text;
-            Config.sm_img_txt = Small_Image_Desc.Text;
-            Config.lg_img = Large_Image.Text;
-            Config.lg_img_txt = Large_Image_Desc.Text;
-
             //save to file
 
             if (!Directory.Exists(SettingsDirPath))
@@ -96,17 +107,28 @@ namespace YourRPC {
             }
 
             RefreshPresenceContents();
-            FileStream file = File.OpenWrite(SettingsPath);
-            file.Write(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(presence, Formatting.Indented)), 0, Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(presence, Formatting.Indented)).Length);
+            FileStream file;
+            while (true)
+            {
+                try
+                {
+                    file = File.OpenWrite(SettingsPath);
+                    break;
+                }
+                catch(Exception ex)
+                {
 
-            YourRPC.Properties.Settings.Default.ClientID = Config.clientID;
-            YourRPC.Properties.Settings.Default.Details = Config.details;
-            YourRPC.Properties.Settings.Default.State = Config.state;
-            YourRPC.Properties.Settings.Default.sm_img = Config.sm_img;
-            YourRPC.Properties.Settings.Default.sm_img_txt = Config.sm_img_txt;
-            YourRPC.Properties.Settings.Default.lg_img = Config.lg_img;
-            YourRPC.Properties.Settings.Default.lg_img_txt = Config.lg_img_txt;
-            YourRPC.Properties.Settings.Default.Save();
+                }
+            }
+
+            Config cfg = new Config
+            {
+                clientID = ClientID.Text,
+                presence = presence,
+            };
+            
+            file.Write(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(cfg, Formatting.Indented)), 0, Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(cfg, Formatting.Indented)).Length);
+
         }
 
         private void RefreshPresenceContents()
@@ -129,7 +151,7 @@ namespace YourRPC {
             } else {
                 long a;
                 if(!long.TryParse(ClientID.Text, out a)) {
-                    MessageBox.Show("")
+                    MessageBox.Show("");
                     return;
                 }
 
@@ -178,11 +200,6 @@ namespace YourRPC {
             DiscordRpc.UpdatePresence(ref presence);
         }
 
-        private void OpenSettings(object sender, RoutedEventArgs e) {
-            SettingsWindow settingsWin = new SettingsWindow();
-            settingsWin.ShowDialog();
-        }
-
         public void ChFontColor(object sender, RoutedEventArgs e) {
             if (IsDarkmode() && IsWindows10()) {
                 this.Resources["DynamicFG"] = new SolidColorBrush(Colors.White);
@@ -220,25 +237,16 @@ namespace YourRPC {
         }
     }
 
-    class config {
-        public string clientID;
-        public string details;
-        public string state;
-        public string sm_img;
-        public string sm_img_txt;
-        public string lg_img;
-        public string lg_img_txt;
+    class Config {
+        public string clientID { get; set; }
+        public YourRPC.DiscordRpc.RichPresence presence { get; set; }
+        
     }
+    
 
-    class defaultConfig {
-        public const string ClientID = "488870967217487872";
-        public const string Details = "Make your own";
-        public const string State = "custom Rich Presence";
-        public const string Sm_img = "rich_presence";
-        public const string Sm_img_txt = "Your Discord RP";
-        public const string Lg_img = "discord-logo-white";
-        public const string Lg_img_txt = "Discord";
-    }
+   
+
+    
 }
 
 
