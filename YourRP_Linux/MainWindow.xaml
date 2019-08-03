@@ -12,9 +12,9 @@
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
     <StackPanel Orientation="Vertical" Grid.Column="0" Width="120" Background="WhiteSmoke" VerticalAlignment="Stretch" HorizontalAlignment="Left">
-      <Button VerticalAlignment="Top"  HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" Background="WhiteSmoke" x:Name="StartButton">Start </Button>
+      <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" Background="WhiteSmoke" x:Name="ToggleButton">Start </Button>
       <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" Background="WhiteSmoke" x:Name="SaveButton">Save</Button>
-      <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" Background="WhiteSmoke" x:Name="RefreshButton">Refresh</Button>
+      <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" Background="WhiteSmoke" x:Name="RefreshButton">Refresh Presence</Button>
     </StackPanel>
     <Grid Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
       <Grid.ColumnDefinitions>
