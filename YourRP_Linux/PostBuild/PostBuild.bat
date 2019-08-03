@@ -1,1 +1,1 @@
-xcopy  /s /y "%1" "%2";
+xcopy  /s /y "%1Deps\*" "%2";
