@@ -38,7 +38,7 @@ namespace YourRP_Linux
             presence.smallImageKey = this.Get<TextBox>("SmallImgInput").Text;
             presence.smallImageText = this.Get<TextBox>("SmallImgDescInput").Text;
             presence.largeImageKey = this.Get<TextBox>("LargeImgInput").Text;
-            presence.largeImageText = this.Get<TextBox>("State").Text;
+            presence.largeImageText = this.Get<TextBox>("LargeImgDescInput").Text;
             DiscordRpc.UpdatePresence(ref presence);
         }
 
@@ -52,11 +52,11 @@ namespace YourRP_Linux
         {
             if (PresenceISActive)
             {
-                
             }
             else
             {
-                
+                InitializePresence(this.Get<TextBox>("ClientIDInput").Text);
+
             }
         }
 

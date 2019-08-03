@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 YourRP_Linux/PostBuild/outdir.txt
 YourRP_Linux/PostBuild/projdir.txt
+YourRP_Linux/Publish/
