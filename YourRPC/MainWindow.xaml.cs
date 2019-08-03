@@ -240,13 +240,7 @@ namespace YourRPC {
     class Config {
         public string clientID { get; set; }
         public YourRPC.DiscordRpc.RichPresence presence { get; set; }
-        
     }
-    
-
-   
-
-    
 }
 
 

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace YourRPC {
+namespace YourRP_Linux {
     // https://github.com/discordapp/discord-rpc/blob/master/examples/button-clicker/Assets/DiscordRpc.cs
     public class DiscordRpc {
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]

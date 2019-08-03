@@ -7,7 +7,6 @@ using System.Text;
 using System.Windows.Input;
 using Avalonia.Media;
 using Newtonsoft.Json;
-using YourRPC;
 using MessageBox.Avalonia;
 
 namespace YourRP_Linux
@@ -71,22 +70,38 @@ namespace YourRP_Linux
 
             RefreshPresenceContents();
             FileStream file = File.OpenWrite(SettingsPath);
-            file.Write(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(presence, Formatting.Indented)));
+            Config cfg = new Config
+            {
+                clientID = this.Get<TextBox>("ClientIDInput").Text,
+                presence = presence,
+            };
+
+            file.Write(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(cfg, Formatting.Indented)));
         }
 
         public void LoadConfig()
         {
             if (Directory.Exists(SettingsDirPath) && File.Exists(SettingsPath))
             {
-                StreamReader cfg = File.OpenText(SettingsPath);
-                presence = JsonConvert.DeserializeObject<DiscordRpc.RichPresence>(cfg.ReadToEnd());
-                
-                this.Get<TextBox>("DetailsInput").Text = presence.details;
-                this.Get<TextBox>("StateInput").Text = presence.state;
-                this.Get<TextBox>("SmallImgInput").Text = presence.smallImageKey;
-                this.Get<TextBox>("SmallImgDescInput").Text = presence.smallImageText;
-                this.Get<TextBox>("LargeImgInput").Text = presence.largeImageKey;
-                this.Get<TextBox>("LargeImgDescInput").Text = presence.largeImageText;
+                try
+                {
+                    StreamReader cfg = File.OpenText(SettingsPath);
+                    Config c = JsonConvert.DeserializeObject<Config>(cfg.ReadToEnd());
+
+                    presence = c.presence;
+
+                    this.Get<TextBox>("ClientIDInput").Text = c.clientID;
+                    this.Get<TextBox>("DetailsInput").Text = presence.details;
+                    this.Get<TextBox>("StateInput").Text = presence.state;
+                    this.Get<TextBox>("SmallImgInput").Text = presence.smallImageKey;
+                    this.Get<TextBox>("SmallImgDescInput").Text = presence.smallImageText;
+                    this.Get<TextBox>("LargeImgInput").Text = presence.largeImageKey;
+                    this.Get<TextBox>("LargeImgDescInput").Text = presence.largeImageText;
+                }
+                catch (Exception e)
+                {
+
+                }
             }
         }
 
@@ -141,6 +156,11 @@ namespace YourRP_Linux
             AvaloniaXamlLoader.Load(this);
         }
 
-       
+        class Config
+        {
+            public string clientID { get; set; }
+            public YourRP_Linux.DiscordRpc.RichPresence presence { get; set; }
+        }
+
     }
 }
