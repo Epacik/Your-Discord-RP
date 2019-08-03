@@ -1,2 +1,4 @@
 #!/bin/bash
 cp -r "$1Deps/libdiscord-rpc.so" "$2"
+mkdir "$2res"
+cp -r "$1res/Discord-RPC.ico" "$2res/Discord-RPC.ico"

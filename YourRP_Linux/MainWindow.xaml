@@ -5,7 +5,6 @@
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="250"
         Width="500" Height="250" CanResize="False" 
         x:Class="YourRP_Linux.MainWindow"
-        
         Title="Your Rich Presence">
   <Grid>
     <Grid.ColumnDefinitions>

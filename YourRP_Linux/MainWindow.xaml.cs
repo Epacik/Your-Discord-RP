@@ -2,7 +2,11 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using System;
+using System.IO;
+using System.Text;
 using System.Windows.Input;
+using Avalonia.Media;
+using Newtonsoft.Json;
 using YourRPC;
 
 namespace YourRP_Linux
@@ -17,6 +21,7 @@ namespace YourRP_Linux
             this.AttachDevTools();
 #endif
             AddEventHandlers();
+            LoadConfig();
            
         }
 
@@ -33,18 +38,55 @@ namespace YourRP_Linux
         
         private void RefreshPresence_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
+            RefreshPresenceContents();
+            DiscordRpc.UpdatePresence(ref presence);
+        }
+
+        private void RefreshPresenceContents()
+        {
             presence.details = this.Get<TextBox>("DetailsInput").Text;
             presence.state = this.Get<TextBox>("StateInput").Text;
             presence.smallImageKey = this.Get<TextBox>("SmallImgInput").Text;
             presence.smallImageText = this.Get<TextBox>("SmallImgDescInput").Text;
             presence.largeImageKey = this.Get<TextBox>("LargeImgInput").Text;
             presence.largeImageText = this.Get<TextBox>("LargeImgDescInput").Text;
-            DiscordRpc.UpdatePresence(ref presence);
         }
 
+        private static string SettingsDirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            ".YourRP");
+        private static string SettingsPath = Path.Combine(SettingsDirPath, "config.json");
+        
         private void SavePresence_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
+            
+            if (!Directory.Exists(SettingsDirPath))
+            {
+                Directory.CreateDirectory(SettingsDirPath);
+            }
+            if (!File.Exists(SettingsPath))
+            {
+                File.Create(SettingsPath);
+            }
 
+            RefreshPresenceContents();
+            FileStream file = File.OpenWrite(SettingsPath);
+            file.Write(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(presence, Formatting.Indented)));
+        }
+
+        public void LoadConfig()
+        {
+            if (Directory.Exists(SettingsDirPath) && File.Exists(SettingsPath))
+            {
+                StreamReader cfg = File.OpenText(SettingsPath);
+                presence = JsonConvert.DeserializeObject<DiscordRpc.RichPresence>(cfg.ReadToEnd());
+                
+                this.Get<TextBox>("DetailsInput").Text = presence.details;
+                this.Get<TextBox>("StateInput").Text = presence.state;
+                this.Get<TextBox>("SmallImgInput").Text = presence.smallImageKey;
+                this.Get<TextBox>("SmallImgDescInput").Text = presence.smallImageText;
+                this.Get<TextBox>("LargeImgInput").Text = presence.largeImageKey;
+                this.Get<TextBox>("LargeImgDescInput").Text = presence.largeImageText;
+            }
         }
 
         private bool PresenceISActive = false;
@@ -52,11 +94,24 @@ namespace YourRP_Linux
         {
             if (PresenceISActive)
             {
+                DiscordRpc.Shutdown();
+                this.Get<Button>("ToggleButton").BorderBrush = Brushes.LightGray;
+                this.Get<Button>("ToggleButton").BorderThickness = new Thickness(1, 1,1,1);
+                this.Get<Button>("ToggleButton").Padding = new Thickness(20,0,0,0);
+                this.Get<Button>("ToggleButton").Content = "Start";
+                PresenceISActive = false;
             }
             else
             {
                 InitializePresence(this.Get<TextBox>("ClientIDInput").Text);
-
+                
+                this.Get<Button>("ToggleButton").BorderBrush = Brushes.Green;
+                this.Get<Button>("ToggleButton").BorderThickness = new Thickness(7, 1,1,1);
+                this.Get<Button>("ToggleButton").Padding = new Thickness(14,0,0,0);
+                this.Get<Button>("ToggleButton").Content = "Stop";
+                RefreshPresence_Click(null, null);
+                PresenceISActive = true;
+                
             }
         }
 
