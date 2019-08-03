@@ -29,6 +29,6 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="echo &quot;$(ProjectDir)&quot; &gt; &quot;$(ProjectDir)PostBuild/projdir.txt&quot;&#xD;&#xA;echo &quot;$(ProjectDir)$(OutDir)&quot; &gt; &quot;$(ProjectDir)PostBuild/outdir.txt&quot;&#xD;&#xA;&#xD;&#xA;&quot;$(ProjectDir)PostBuild/postbuild&quot; &quot;$(ProjectDir)&quot; &quot;$(ProjectDir)$(OutDir)&quot;" />
+    <Exec Command="&#xD;&#xA;&#xD;&#xA;&quot;$(ProjectDir)PostBuild/postbuild&quot; &quot;$(ProjectDir)Deps/*&quot; &quot;$(ProjectDir)$(OutDir)&quot;" />
   </Target>
 </Project>
