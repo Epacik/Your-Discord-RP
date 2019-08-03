@@ -15,4 +15,17 @@
     <PackageReference Include="Avalonia" Version="0.8.0" />
     <PackageReference Include="Avalonia.Desktop" Version="0.8.0" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="PostBuild\projpath.txt">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>projpath.tt</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="echo &quot;$(ProjectDir)&quot; &gt; &quot;$(ProjectDir)PostBuild/projdir.txt&quot;&#xD;&#xA;echo &quot;$(ProjectDir)$(OutDir)&quot; &gt; &quot;$(ProjectDir)PostBuild/outdir.txt&quot;&#xD;&#xA;" />
+  </Target>
 </Project>
