@@ -12,7 +12,7 @@ namespace YourRP_Linux
         public MainWindow()
         {
             InitializeComponent();
-            this.Icon = new WindowIcon(new Uri("res/Discord-RPC.ico", UriKind.Relative).AbsolutePath);
+            this.Icon = new WindowIcon("res/Discord-RPC.ico");
 #if DEBUG
             this.AttachDevTools();
 #endif

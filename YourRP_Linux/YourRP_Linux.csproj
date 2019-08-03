@@ -3,6 +3,7 @@
     <OutputType>Exe</OutputType>
     <TargetFrameworks>netcoreapp2.1</TargetFrameworks>
     <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
+    <ApplicationIcon>Discord-RPC.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <PlatformTarget>x64</PlatformTarget>
