@@ -7,15 +7,30 @@
         x:Class="YourRP_Linux.MainWindow"
         WindowStartupLocation="CenterScreen"
         Title="Your Rich Presence">
-  <Grid>
+        <Window.Resources>
+          <SolidColorBrush x:Name="MainBgColor" x:Key="MainBackground" Color="#ffffff"/>
+          <SolidColorBrush x:Name="MenuBgColor" x:Key="MenuBackground" Color="WhiteSmoke"/>
+          <SolidColorBrush x:Name="FontColor" x:Key="FontC" Color="Black"/>
+          
+          
+        </Window.Resources>
+        <Window.Styles>
+          <Style Selector="Button">
+            <Setter Property="Button.Background" Value="#00000000"/>
+          </Style>
+          <Style Selector="Button:pointerover">
+            <Setter Property="Button.Background" Value="#66666666"/>
+          </Style>
+        </Window.Styles>
+  <Grid Background="{StaticResource MainBackground}">
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="160"/>
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
-    <StackPanel Orientation="Vertical" Grid.Column="0" Width="120" Background="WhiteSmoke" VerticalAlignment="Stretch" HorizontalAlignment="Left">
-      <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" Background="WhiteSmoke" x:Name="ToggleButton">Start </Button>
-      <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" Background="WhiteSmoke" x:Name="SaveButton">Save</Button>
-      <Button VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" Background="WhiteSmoke" x:Name="RefreshButton">Refresh</Button>
+    <StackPanel Orientation="Vertical" Grid.Column="0" Width="120" Background="{StaticResource MenuBackground}" VerticalAlignment="Stretch" HorizontalAlignment="Left">
+      <Button Classes="mb" VerticalAlignment="Top" Foreground="{StaticResource FontC}"  HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" BorderThickness="0" x:Name="ToggleButton" Content="Start"/>
+      <Button Classes="mb" VerticalAlignment="Top" Foreground="{StaticResource FontC}"  HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" BorderThickness="0" x:Name="SaveButton" Content="Save"/>
+      <Button Classes="mb" VerticalAlignment="Top" Foreground="{StaticResource FontC}" HorizontalAlignment="Left" Padding="20,0,0,0" HorizontalContentAlignment="Left" Width="120" Height="30" BorderBrush="LightGray" BorderThickness="0" x:Name="RefreshButton" Content="Refresh"/>
     </StackPanel>
     <Grid Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
       <Grid.ColumnDefinitions>
@@ -31,26 +46,26 @@
         <RowDefinition Height="30"/>
         <RowDefinition Height="30"/>
       </Grid.RowDefinitions>
-      <TextBlock Grid.Column="0" Grid.Row="0" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Client ID"/>
-      <TextBox x:Name="ClientIDInput" Grid.Row="0" Grid.Column="1" Margin="0,4,10,0" Text="488870967217487872"/>
+      <TextBlock Grid.Column="0" Foreground="{StaticResource FontC}" Grid.Row="0" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Client ID"/>
+      <TextBox x:Name="ClientIDInput" Foreground="{StaticResource FontC}" Background="{StaticResource MenuBackground}" Grid.Row="0" Grid.Column="1" Margin="0,4,10,0" Text="488870967217487872"/>
 
-      <TextBlock Grid.Column="0" Grid.Row="1" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Details"/>
-      <TextBox x:Name="DetailsInput" Grid.Row="1" Grid.Column="1" Margin="0,4,10,0" Text="Make your own"/>
+      <TextBlock Grid.Column="0" Foreground="{StaticResource FontC}" Grid.Row="1" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Details"/>
+      <TextBox x:Name="DetailsInput" Foreground="{StaticResource FontC}" Background="{StaticResource MenuBackground}" Grid.Row="1" Grid.Column="1" Margin="0,4,10,0" Text="Make your own"/>
 
-      <TextBlock Grid.Column="0" Grid.Row="2" Margin="0,12,0,0" HorizontalAlignment="Left" Text="State"/>
-      <TextBox x:Name="StateInput" Grid.Row="2" Grid.Column="1" Margin="0,4,10,0" Text="custom Rich Presence"/>
+      <TextBlock Grid.Column="0" Foreground="{StaticResource FontC}" Grid.Row="2" Margin="0,12,0,0" HorizontalAlignment="Left" Text="State"/>
+      <TextBox x:Name="StateInput" Foreground="{StaticResource FontC}" Background="{StaticResource MenuBackground}" Grid.Row="2" Grid.Column="1" Margin="0,4,10,0" Text="custom Rich Presence"/>
 
-      <TextBlock Grid.Column="0" Grid.Row="3" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Small image name"/>
-      <TextBox x:Name="SmallImgInput" Grid.Row="3" Grid.Column="1" Margin="0,4,10,0" Text="rich_presence"/>
+      <TextBlock Grid.Column="0" Foreground="{StaticResource FontC}" Grid.Row="3" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Small image name"/>
+      <TextBox x:Name="SmallImgInput"  Foreground="{StaticResource FontC}" Background="{StaticResource MenuBackground}" Grid.Row="3" Grid.Column="1" Margin="0,4,10,0" Text="rich_presence"/>
 
-      <TextBlock Grid.Column="0" Grid.Row="4" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Small image description"/>
-      <TextBox x:Name="SmallImgDescInput" Grid.Row="4" Grid.Column="1" Margin="0,4,10,0" Text="Your Discord RP"/>
+      <TextBlock Grid.Column="0" Foreground="{StaticResource FontC}"  Grid.Row="4" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Small image description"/>
+      <TextBox x:Name="SmallImgDescInput" Foreground="{StaticResource FontC}" Background="{StaticResource MenuBackground}" Grid.Row="4" Grid.Column="1" Margin="0,4,10,0" Text="Your Discord RP"/>
 
-      <TextBlock Grid.Column="0" Grid.Row="5" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Large image name"/>
-      <TextBox x:Name="LargeImgInput" Grid.Row="5" Grid.Column="1" Margin="0,4,10,0" Text="discord-logo-white"/>
+      <TextBlock Grid.Column="0" Foreground="{StaticResource FontC}"  Grid.Row="5" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Large image name"/>
+      <TextBox x:Name="LargeImgInput" Foreground="{StaticResource FontC}" Background="{StaticResource MenuBackground}" Grid.Row="5" Grid.Column="1" Margin="0,4,10,0" Text="discord-logo-white"/>
 
-      <TextBlock Grid.Column="0" Grid.Row="6" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Large image description"/>
-      <TextBox x:Name="LargeImgDescInput" Grid.Row="6" Grid.Column="1" Margin="0,4,10,0" Text="Discord"/>
+      <TextBlock Grid.Column="0" Foreground="{StaticResource FontC}"  Grid.Row="6" Margin="0,12,0,0" HorizontalAlignment="Left" Text="Large image description"/>
+      <TextBox x:Name="LargeImgDescInput" Foreground="{StaticResource FontC}" Background="{StaticResource MenuBackground}" Grid.Row="6" Grid.Column="1" Margin="0,4,10,0" Text="Discord"/>
     </Grid>
   </Grid>
 </Window>

@@ -2,7 +2,9 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using Avalonia.Media;
@@ -11,8 +13,35 @@ using MessageBox.Avalonia;
 
 namespace YourRP_Linux
 {
+
+    
     public class MainWindow : Window
     {
+        
+        #region Window Elements Definitions
+
+        #region Buttons
+
+        private Button ToggleButton;
+        private Button RefreshButton;
+        private Button SaveButton;
+
+        
+    
+
+        #endregion
+    
+        private SolidColorBrush MainBgColor;
+        private SolidColorBrush MenuBgColor;
+        private SolidColorBrush FontColor;
+
+
+        #endregion
+        
+        
+        
+        private static string GnomeSettingsPath =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), @".config/gtk-3.0/settings.ini");
         public MainWindow()
         {
             InitializeComponent();
@@ -21,15 +50,56 @@ namespace YourRP_Linux
             this.AttachDevTools();
 #endif
             AddEventHandlers();
+            
             LoadConfig();
-           
+            SetTheme();
+            
+
+        }
+        
+        private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
+
+            #region Buttons
+
+            ToggleButton = this.Get<Button>("ToggleButton");
+            SaveButton = this.Get<Button>("SaveButton");
+            RefreshButton = this.Get<Button>("RefreshButton");
+
+            #endregion
+
+            MainBgColor = this.Get<SolidColorBrush>("MainBgColor");
+            MenuBgColor = this.Get<SolidColorBrush>("MenuBgColor");
+            FontColor = this.Get<SolidColorBrush>("FontColor");
+
+        }
+
+        private void SetTheme()
+        {
+            //MainBgColor.Color = Color.FromRgb(255, 128, 0);
+            if (File.Exists(GnomeSettingsPath))
+            {
+                string GtkConfig = File.ReadAllText(GnomeSettingsPath);
+                List<string> ConfigLines = GtkConfig.Split(Environment.NewLine).ToList();
+                string darkmodeSetting = ConfigLines.FirstOrDefault(l => l.StartsWith("gtk-application-prefer-dark-theme"));
+                if (darkmodeSetting != null &&
+                    (darkmodeSetting.Contains("1") || darkmodeSetting.ToLower().Contains("true")))
+                {
+                    //Set darker colors of ui and light font colors
+                    MainBgColor.Color = Color.FromRgb(0,0,0);
+                    MenuBgColor.Color = Color.FromRgb(40, 40, 40);
+                    FontColor.Color = Colors.White;
+                }
+            }
+            
         }
 
         private void AddEventHandlers()
         {
-            this.Get<Button>("ToggleButton").Click += TogglePresence_Click;
-            this.Get<Button>("SaveButton").Click += SavePresence_Click;
-            this.Get<Button>("RefreshButton").Click += RefreshPresence_Click;
+            ToggleButton.Click += TogglePresence_Click;
+            SaveButton.Click += SavePresence_Click;
+            RefreshButton.Click += RefreshPresence_Click;
         }
 
         
@@ -55,6 +125,8 @@ namespace YourRP_Linux
         private static string SettingsDirPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
             ".YourRP");
         private static string SettingsPath = Path.Combine(SettingsDirPath, "config.json");
+
+        
         
         private void SavePresence_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
@@ -63,10 +135,10 @@ namespace YourRP_Linux
             {
                 Directory.CreateDirectory(SettingsDirPath);
             }
-            if (!File.Exists(SettingsPath))
-            {
-                File.Create(SettingsPath);
-            }
+//            if (!File.Exists(SettingsPath))
+//            {
+//                File.Create(SettingsPath);
+//            }
 
             RefreshPresenceContents();
             FileStream file = File.OpenWrite(SettingsPath);
@@ -112,7 +184,7 @@ namespace YourRP_Linux
             {
                 DiscordRpc.Shutdown();
                 this.Get<Button>("ToggleButton").BorderBrush = Brushes.LightGray;
-                this.Get<Button>("ToggleButton").BorderThickness = new Thickness(1, 1,1,1);
+                this.Get<Button>("ToggleButton").BorderThickness = new Thickness(0, 0,0,0);
                 this.Get<Button>("ToggleButton").Padding = new Thickness(20,0,0,0);
                 this.Get<Button>("ToggleButton").Content = "Start";
                 PresenceISActive = false;
@@ -149,12 +221,6 @@ namespace YourRP_Linux
             
         }
 
-
-        
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
 
         class Config
         {
