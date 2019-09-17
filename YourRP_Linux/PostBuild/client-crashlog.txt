@@ -1,0 +1,15 @@
+05.08.2019 18:59:59
+System.TypeInitializationException: The type initializer for 'Terraria.ModLoader.ModLoader' threw an exception. ---> System.TypeLoadException: Could not load type of field 'Terraria.ModLoader.Mod:textures' (11) due to: Could not load file or assembly 'FNA, Version=17.3.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:FNA, Version=17.3.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:<none>
+   --- End of inner exception stack trace ---
+  at Terraria.Program.LaunchGame (System.String[] args, System.Boolean monoArgs) [0x00087] in <fca6fd30cb79450184360789aba31a85>:0 
+
+05.08.2019 19:02:51
+System.TypeInitializationException: The type initializer for 'Terraria.ModLoader.ModLoader' threw an exception. ---> System.TypeLoadException: Could not load type of field 'Terraria.ModLoader.Mod:textures' (11) due to: Could not load file or assembly 'FNA, Version=17.3.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies.
+   --- End of inner exception stack trace ---
+  at Terraria.Program.LaunchGame (System.String[] args, System.Boolean monoArgs) [0x00087] in <fca6fd30cb79450184360789aba31a85>:0 
+
+05.08.2019 19:04:15
+System.TypeInitializationException: The type initializer for 'Terraria.ModLoader.ModLoader' threw an exception. ---> System.TypeLoadException: Could not load type of field 'Terraria.ModLoader.Mod:textures' (11) due to: Could not load file or assembly 'FNA, Version=17.3.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies.
+   --- End of inner exception stack trace ---
+  at Terraria.Program.LaunchGame (System.String[] args, System.Boolean monoArgs) [0x00087] in <fca6fd30cb79450184360789aba31a85>:0 
+
