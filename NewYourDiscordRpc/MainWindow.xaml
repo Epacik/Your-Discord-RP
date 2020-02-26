@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="NewYourDiscordRpc.MainWindow"
+        Title="NewYourDiscordRpc">
+  <Grid ShowGridLines="True">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40"/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Grid>
+      <StackPanel Margin="5" Orientation="Horizontal" x:Name="ToolBar" Spacing="5">
+        <Button x:Name="StartButton">
+          <StackPanel  Orientation="Horizontal">
+            <Path Width="20" Height="20" Margin="5,0,5,0" Stretch="Uniform" Data="m 6 6 0 20 20 -10 z"  StrokeThickness="3" Fill="Green" />
+            <TextBlock FontSize="18" Text="Start"/>
+          </StackPanel>
+        </Button>
+
+        <Button x:Name="StopButton" IsVisible="False">
+          <StackPanel  Orientation="Horizontal">
+            <Path Width="20" Height="20" Margin="5,0,5,0" Stretch="Uniform" Data="m 6 6 0 20 20 0 0 -20 z"  StrokeThickness="3" Fill="DarkRed" />
+            <TextBlock FontSize="18" Text="Stop"/>
+          </StackPanel>
+        </Button>
+
+        <Button x:Name="RefreshButton">
+          <StackPanel  Orientation="Horizontal">
+            <Path Width="20" Height="20" Margin="5,0,5,0" Stretch="Uniform"
+                  Data="m 28 16 a 12 12 0 0 1 -1.671875 6.083984 L 20.95 16.707 21.66 16 26.064 20.404 A 11 11 0 0 0 27 16 11 11 0 0 0 16 5 11 11 0 0 0 10.648438 6.404297 L 9.92 5.672 A 12 12 0 0 1 16 4 12 12 0 0 1 28 16 M 22.083984 26.328125 A 12 12 0 0 1 16 28 12 12 0 0 1 4 16 12 12 0 0 1 5.671875 9.91602 L 11.051 15.293 10.344 16 5.94 11.594 A 11 11 0 0 0 5 16 11 11 0 0 0 16 27 11 11 0 0 0 21.351562 25.595703 Z"
+                  StrokeThickness="2" Stroke="black" />
+            <TextBlock FontSize="18" Text="Refresh"/>
+          </StackPanel>
+        </Button>
+
+        <Button x:Name="SaveButton">
+          <StackPanel  Orientation="Horizontal">
+            <Path Width="20" Height="20" Margin="5,0,5,0" Stretch="Uniform"
+                  Data="m 4 4 0 24 5 0 14 0 5 0 L 28 10 27 9 23 5 22 4 21 4 10 4 4 4 Z m 1 1 5 0 0 8 11 0 0 -8 0.585938 0 L 27 10.414062 27 27 23 27 23 19 9 19 9 27 5 27 5 5 Z m 6 0 6 0 0 7 -6 0 0 -7 z m -1 15 12 0 0 7 -12 0 0 -7 z"
+                  StrokeThickness="3" Fill="Black" />
+            <TextBlock FontSize="18" Text="Save"/>
+          </StackPanel>
+        </Button>
+      </StackPanel>
+    </Grid>
+
+  </Grid>
+</Window>

@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
@@ -8,6 +8,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rpc-test-linux", "rpc-test-linux\rpc-test-linux.csproj", "{082FCBAD-09B3-4FC2-B758-2655ED123AB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YourRP_Linux", "YourRP_Linux\YourRP_Linux.csproj", "{07F730C4-CA39-4BD5-9EC0-6FB47E194AA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewYourDiscordRpc", "NewYourDiscordRpc\NewYourDiscordRpc.csproj", "{F9C5B8C9-8588-4C00-A90B-734BF4738A95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,11 +57,26 @@ Global
 		{07F730C4-CA39-4BD5-9EC0-6FB47E194AA5}.Release|x64.Build.0 = Release|Any CPU
 		{07F730C4-CA39-4BD5-9EC0-6FB47E194AA5}.Release|x86.ActiveCfg = Release|Any CPU
 		{07F730C4-CA39-4BD5-9EC0-6FB47E194AA5}.Release|x86.Build.0 = Release|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Debug|x64.Build.0 = Debug|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Debug|x86.Build.0 = Debug|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Release|x64.ActiveCfg = Release|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Release|x64.Build.0 = Release|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Release|x86.ActiveCfg = Release|Any CPU
+		{F9C5B8C9-8588-4C00-A90B-734BF4738A95}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E639D401-E650-4B03-A6DC-5355FE84BC2D}
+	EndGlobalSection
+	GlobalSection(AvalonStudioProperties) = preSolution
+		StartupItem = {F9C5B8C9-8588-4C00-A90B-734BF4738A95}
 	EndGlobalSection
 EndGlobal
