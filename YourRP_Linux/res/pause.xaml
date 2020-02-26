@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is compatible with Silverlight-->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="192" Height="192">
+  <Canvas.RenderTransform>
+    <TranslateTransform X="0" Y="0"/>
+  </Canvas.RenderTransform>
+  <Canvas.Resources>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath16" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath26" Figures="M -4.88281e-4 192 192 192 192 -4.88281e-4 l -192.000488281 0 0 192.000488281 z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath34" Figures="M -4.88281e-4 192 192 192 192 -4.88281e-4 l -192.000488281 0 0 192.000488281 z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath38" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath42" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath116" Figures="m 0 192 192 0 0 -192.000488281 -192 0 L 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath120" Figures="m 0 192 192 0 0 -191.999511719 -192 0 L 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath124" Figures="M 192 192 0 192 0 0 l 192 0 0 192 z" FillRule="NonZero"/>
+  </Canvas.Resources>
+  <!--Unknown tag: sodipodi:namedview-->
+  <!--Unknown tag: metadata-->
+  <Canvas Name="g10">
+    <Canvas.RenderTransform>
+      <MatrixTransform Matrix="1.25 0 0 -1.25 0 192"/>
+    </Canvas.RenderTransform>
+    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="42.791962" Canvas.Top="-122.72764" Width="19.336079" Height="91.856079" Name="rect6499" StrokeThickness="3.94392204" Stroke="#FF000000" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Opacity="1">
+      <Rectangle.RenderTransform>
+        <ScaleTransform ScaleX="1" ScaleY="-1"/>
+      </Rectangle.RenderTransform>
+    </Rectangle>
+    <Rectangle xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Canvas.Left="91.471962" Canvas.Top="-122.82836" Width="19.336079" Height="91.856079" Name="rect64993" StrokeThickness="3.94392204" Stroke="#FF000000" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Opacity="1">
+      <Rectangle.RenderTransform>
+        <ScaleTransform ScaleX="1" ScaleY="-1"/>
+      </Rectangle.RenderTransform>
+    </Rectangle>
+  </Canvas>
+</Canvas>

@@ -149,6 +149,7 @@ namespace YourRP_Linux
             };
 
             file.Write(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(cfg, Formatting.Indented)));
+            file.Close();
         }
 
         public void LoadConfig()
@@ -183,9 +184,7 @@ namespace YourRP_Linux
             if (PresenceISActive)
             {
                 DiscordRpc.Shutdown();
-                this.Get<Button>("ToggleButton").BorderBrush = Brushes.LightGray;
-                this.Get<Button>("ToggleButton").BorderThickness = new Thickness(0, 0,0,0);
-                this.Get<Button>("ToggleButton").Padding = new Thickness(20,0,0,0);
+                this.Get<Button>("ToggleButton").Classes.Remove("SuccessBrush");
                 this.Get<Button>("ToggleButton").Content = "Start";
                 PresenceISActive = false;
             }
@@ -200,9 +199,7 @@ namespace YourRP_Linux
                 }
                 InitializePresence(this.Get<TextBox>("ClientIDInput").Text);
                 
-                this.Get<Button>("ToggleButton").BorderBrush = Brushes.Green;
-                this.Get<Button>("ToggleButton").BorderThickness = new Thickness(7, 1,1,1);
-                this.Get<Button>("ToggleButton").Padding = new Thickness(14,0,0,0);
+                this.Get<Button>("ToggleButton").Classes.Add("SuccessBrush");
                 this.Get<Button>("ToggleButton").Content = "Stop";
                 RefreshPresence_Click(null, null);
                 PresenceISActive = true;

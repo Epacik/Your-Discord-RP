@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is compatible with Silverlight-->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="192" Height="192">
+  <Canvas.RenderTransform>
+    <TranslateTransform X="0" Y="0"/>
+  </Canvas.RenderTransform>
+  <Canvas.Resources>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath16" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath26" Figures="M -4.88281e-4 192 192 192 192 -4.88281e-4 l -192.000488281 0 0 192.000488281 z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath34" Figures="M -4.88281e-4 192 192 192 192 -4.88281e-4 l -192.000488281 0 0 192.000488281 z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath38" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath42" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath116" Figures="m 0 192 192 0 0 -192.000488281 -192 0 L 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath120" Figures="m 0 192 192 0 0 -191.999511719 -192 0 L 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath124" Figures="M 192 192 0 192 0 0 l 192 0 0 192 z" FillRule="NonZero"/>
+  </Canvas.Resources>
+  <!--Unknown tag: sodipodi:namedview-->
+  <!--Unknown tag: metadata-->
+  <Canvas Name="g10">
+    <Canvas.RenderTransform>
+      <MatrixTransform Matrix="1.25 0 0 -1.25 0 192"/>
+    </Canvas.RenderTransform>
+    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="rect2356" StrokeThickness="4.07999992" Stroke="#FF000000" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Opacity="1" Data="m 25.6008 -137.5992 79.9992 0.1988 -63.99968 -0.17287 v 35.0008 L 105.6 -102.3996 v -35.0008 h 7.05136 l 24.86978 25.4008 L 137.6 -25.6 c 0.005 5.318398 -4.2816 9.6 -9.6 9.6 l -9.6 4e-4 v -51.2 h -80 v 51.17196 l 80 -0.17276 L 25.6008 -16 c -5.318388 0.01149 -9.600001 -4.2816 -9.600001 -9.6 v -102.3992 c 0 -5.3184 4.281619 -9.61437 9.600001 -9.6 z">
+      <Path.RenderTransform>
+        <ScaleTransform ScaleX="1" ScaleY="-1"/>
+      </Path.RenderTransform>
+    </Path>
+  </Canvas>
+</Canvas>

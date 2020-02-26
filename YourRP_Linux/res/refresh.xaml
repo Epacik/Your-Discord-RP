@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This file is compatible with Silverlight-->
+<Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Name="svg2" Width="192" Height="192">
+  <Canvas.RenderTransform>
+    <TranslateTransform X="0" Y="0"/>
+  </Canvas.RenderTransform>
+  <Canvas.Resources>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath16" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath26" Figures="M -4.88281e-4 192 192 192 192 -4.88281e-4 l -192.000488281 0 0 192.000488281 z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath34" Figures="M -4.88281e-4 192 192 192 192 -4.88281e-4 l -192.000488281 0 0 192.000488281 z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath38" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath42" Figures="M 0 192 192 192 192 0 0 0 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath116" Figures="m 0 192 192 0 0 -192.000488281 -192 0 L 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath120" Figures="m 0 192 192 0 0 -191.999511719 -192 0 L 0 192 Z" FillRule="NonZero"/>
+    <PathGeometry xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Key="clipPath124" Figures="M 192 192 0 192 0 0 l 192 0 0 192 z" FillRule="NonZero"/>
+  </Canvas.Resources>
+  <!--Unknown tag: sodipodi:namedview-->
+  <!--Unknown tag: metadata-->
+  <Canvas Name="g10">
+    <Canvas.RenderTransform>
+      <MatrixTransform Matrix="1.25 0 0 -1.25 0 192"/>
+    </Canvas.RenderTransform>
+    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path7514" StrokeThickness="4.07999992" Stroke="#FF000000" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Opacity="1" Data="m 76.79992 -128.00104 a 51.200722 51.200722 0 0 1 50.40727 42.221822 51.200722 51.200722 0 0 1 -32.727755 57.030423 51.200722 51.200722 0 0 1 -61.885992 -22.219344 51.200722 51.200722 0 0 1 11.022271 -64.823491">
+      <Path.RenderTransform>
+        <ScaleTransform ScaleX="1" ScaleY="-1"/>
+      </Path.RenderTransform>
+    </Path>
+    <Path xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="path7520" StrokeThickness="4.07999992" Stroke="#FF000000" StrokeMiterLimit="4" StrokeLineJoin="Round" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="m 87.319239 135.98619 -11.259972 -7.60073 9.137724 -9.98586"/>
+  </Canvas>
+</Canvas>
