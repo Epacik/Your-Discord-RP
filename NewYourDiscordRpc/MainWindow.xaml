@@ -2,18 +2,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
-        MaxWidth="450" MaxHeight="350"
-        MinWidth="450" MinHeight="350"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
+        MaxWidth="550" MaxHeight="450"
+        MinWidth="550" MinHeight="450"
         x:Class="NewYourDiscordRpc.MainWindow"
         Title="NewYourDiscordRpc">
-  <Grid ShowGridLines="True">
+  <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="50"/>
       <RowDefinition/>
     </Grid.RowDefinitions>
     <Grid Background="#66f5f5f5">
       <StackPanel Margin="5" Orientation="Horizontal" x:Name="ToolBar" Spacing="5">
+        <Button x:Name="MenuButton">
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Text="…"/>
+          </StackPanel>
+        </Button>
+
         <Button x:Name="StartButton">
           <StackPanel  Orientation="Horizontal">
             <Path Width="20" Height="20" Stretch="Uniform" Data="m 6 6 0 20 20 -10 z"  StrokeThickness="3" Fill="Green" />
@@ -45,8 +51,19 @@
             <TextBlock Text="Save"/>
           </StackPanel>
         </Button>
+
+
       </StackPanel>
     </Grid>
+    <StackPanel Orientation="Horizontal" Grid.Row="1">
+      <ScrollViewer Classes="MSV Show" Background="Green" x:Name="MenuScrollViewer" MaxWidth="150">
+        
+        <StackPanel>
+
+        </StackPanel>
+      </ScrollViewer>
+      <Grid x:Name="View" Background="red" Width="500"/>
+    </StackPanel>
 
   </Grid>
 </Window>

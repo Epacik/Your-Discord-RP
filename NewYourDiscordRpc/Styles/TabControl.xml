@@ -1,0 +1,23 @@
+<Styles
+       xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:sys="clr-namespace:System;assembly=netstandard">
+
+  <!--Main styles-->
+  <Style Selector="TabItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="red"/>
+    <Setter Property="BorderThickness" Value="1"/>
+  </Style>
+
+  <Style Selector="TabItem">
+    <Setter Property="Background" Value="#F0F0F0"/>
+
+  </Style>
+  
+  <Style Selector="TabItem Grid">
+    <Setter Property="Background" Value="Red"/>
+  </Style>
+
+  
+  
+</Styles>
