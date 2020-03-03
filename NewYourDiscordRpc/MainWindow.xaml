@@ -5,6 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
         MaxWidth="550" MaxHeight="450"
         MinWidth="550" MinHeight="450"
+        
         x:Class="NewYourDiscordRpc.MainWindow"
         Title="NewYourDiscordRpc">
   <Grid>
@@ -12,11 +13,17 @@
       <RowDefinition Height="50"/>
       <RowDefinition/>
     </Grid.RowDefinitions>
-    <Grid Background="#66f5f5f5">
+    
+    <ScrollViewer x:Name="DummyScrollViewer" Margin="0,0,0,0" Height="0" IsVisible="False"/>
+    <Grid x:Name="DummyGrid1" IsVisible="False" Height="0" Width="400"/>
+    
+    
+    <Border x:Name="TBar" Background="#66f5f5f5">
+      
       <StackPanel Margin="5" Orientation="Horizontal" x:Name="ToolBar" Spacing="5">
         <Button x:Name="MenuButton">
           <StackPanel Orientation="Horizontal">
-            <TextBlock Text="…"/>
+            <Path Width="20" Height="20" Stretch="Uniform" Fill="Black" Data="M 2 3 L 2 5 L 14 5 L 14 3 L 2 3 z M 2 7 L 2 9 L 14 9 L 14 7 L 2 7 z M 2 11 L 2 13 L 14 13 L 14 11 L 2 11 z "/>
           </StackPanel>
         </Button>
 
@@ -54,16 +61,65 @@
 
 
       </StackPanel>
-    </Grid>
-    <StackPanel Orientation="Horizontal" Grid.Row="1">
-      <ScrollViewer Classes="MSV Show" Background="Green" x:Name="MenuScrollViewer" MaxWidth="150">
-        
-        <StackPanel>
-
+    </Border>
+    
+    
+    
+    <Grid x:Name="MainGrid" Grid.Row="1">
+      
+      <Grid x:Name="View" HorizontalAlignment="Right" Width="{Binding #DummyGrid1.Width}">
+        <Grid.Transitions>
+          <DoubleTransition Property="Width" Duration="0:0:0.1"/>
+        </Grid.Transitions>
+      </Grid>
+      
+      
+      <Grid Margin="{Binding #DummyScrollViewer.Margin}" Width="{Binding #DummyScrollViewer.Width}" Background="{Binding #TBar.Background}" HorizontalAlignment="Left">
+        <Grid.Transitions>
+          <DoubleTransition Property="Width" Duration="0:0:0.1"/>
+          <ThicknessTransition Property="Margin" Duration="0:0:0.1"/>
+        </Grid.Transitions> 
+        <Grid.RowDefinitions>
+          <RowDefinition Height="90"/>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+         
+        <StackPanel Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,10,0">
+          <Button Margin="5" Content="Add new" Width="140"/>
+          <StackPanel Spacing="5" Margin="10,5" Orientation="Horizontal">
+            
+            <Path Width="20" Height="20" Stretch="Uniform" Fill="Black" Data="M 6.5 2 C 4.007 2 2 4.01 2 6.5 C 2 8.993 4.01 11 6.5 11 C 7.5636432 11 8.5263409 10.618801 9.2949219 10.005859 L 13.292969 14.003906 L 14 13.296875 L 10.001953 9.2988281 C 10.617604 8.529048 11 7.565338 11 6.5 C 11 4.007 8.99 2 6.5 2 z M 6.5 3 C 8.439 3 10 4.561 10 6.5 C 10 8.439 8.439 10 6.5 10 C 4.561 10 3 8.439 3 6.5 C 3 4.561 4.561 3 6.5 3 z "/>
+            <TextBox Width="110"></TextBox>
+          </StackPanel>
         </StackPanel>
-      </ScrollViewer>
-      <Grid x:Name="View" Background="red" Width="500"/>
-    </StackPanel>
+        
+        <ScrollViewer Grid.Row="1" MinWidth="0" HorizontalAlignment="Stretch" x:Name="MenuScrollViewer" MaxWidth="150">
+          
+        
+          <StackPanel>
 
+          </StackPanel>
+        </ScrollViewer>
+        
+        <Rectangle Grid.RowSpan="2" Width="10" Margin="-15,0,0,0"  VerticalAlignment="Stretch" HorizontalAlignment="Right">
+          <Rectangle.Fill>
+            <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,0%">
+              <GradientStop Offset="0" Color="LightGray" />
+              <GradientStop Offset="1" Color="Transparent" />
+            </LinearGradientBrush>
+          </Rectangle.Fill>
+        </Rectangle>
+      </Grid>
+    </Grid>
+    
+    <Rectangle Grid.Row="1" Height="10"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
+      <Rectangle.Fill>
+        <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+          <GradientStop Offset="0" Color="LightGray" />
+          <GradientStop Offset="1" Color="Transparent" />
+        </LinearGradientBrush>
+      </Rectangle.Fill>
+    </Rectangle>
+    
   </Grid>
 </Window>

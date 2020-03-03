@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Net;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
+using Dis = Discord;
+using Discord = Discord.Discord;
 
 namespace NewYourDiscordRpc
 {
@@ -21,7 +24,13 @@ namespace NewYourDiscordRpc
 
         #endregion
 
+        private Grid View;
+
         private ScrollViewer MenuScrollViewer;
+        
+        private Grid DummyGrid1;
+
+        private ScrollViewer DummyScrollViewer;
 
 
         #endregion
@@ -41,6 +50,9 @@ namespace NewYourDiscordRpc
             Toolbar();
             MenuScrollViewer = this.Get<ScrollViewer>("MenuScrollViewer");
 
+            DummyGrid1 = this.Get<Grid>("DummyGrid1");
+            DummyScrollViewer = this.Get<ScrollViewer>("DummyScrollViewer");
+
 
             void Toolbar()
             {
@@ -51,6 +63,8 @@ namespace NewYourDiscordRpc
                 SaveButton = this.Get<Button>("SaveButton");
                 MenuButton = this.Get<Button>("MenuButton");
 
+                View = this.Get<Grid>("View");
+
                 //Apply events to buttons
                 StartButton.Click += StartButton_Click;
                 StopButton.Click += StopButton_Click;
@@ -58,45 +72,17 @@ namespace NewYourDiscordRpc
                 SaveButton.Click += SaveButton_Click;
                 MenuButton.Click += (sender, args) =>
                 {
-                    if (MenuScrollViewer.Classes.Contains("Show") || MenuScrollViewer.Classes.Contains("Showing"))
+                    if (DummyScrollViewer.Width >= 150 || Double.IsNaN(DummyScrollViewer.Width))
                     {
-                        Console.WriteLine(MenuScrollViewer.Classes.ToString());
-                        MenuScrollViewer.Classes.Remove("Show");
-                        MenuScrollViewer.Classes.Remove("Showing");
-                        
-                        Console.WriteLine(MenuScrollViewer.Classes.ToString());
-                        MenuScrollViewer.Classes.Add("Hiding");
-                        menuTimer = new DispatcherTimer(
-                            new TimeSpan(0,0,0,0,110),
-                            DispatcherPriority.Send,
-                            (o, a) =>
-                            {
-                                Console.WriteLine(MenuScrollViewer.Classes.ToString());
-                                MenuScrollViewer.Classes.Remove("Hiding");
-                                MenuScrollViewer.Classes.Add("Hide"); 
-                                //MenuScrollViewer.Width = 0;
-                                Console.WriteLine(MenuScrollViewer.Classes.ToString());
-                            });
+                        DummyScrollViewer.Width = 0;
+                        DummyScrollViewer.Margin = new Thickness(-160,0,0,0);
+                        DummyGrid1.Width = this.Width;
                     }
                     else
                     {
-                        Console.WriteLine(MenuScrollViewer.Classes.ToString());
-                        MenuScrollViewer.Classes.Remove("Hide");
-                        MenuScrollViewer.Classes.Remove("Hiding");
-                        
-                        Console.WriteLine(MenuScrollViewer.Classes.ToString());
-                        MenuScrollViewer.Classes.Add("Showing");
-                        menuTimer = new DispatcherTimer(
-                            new TimeSpan(0,0,0,0,110),
-                            DispatcherPriority.Send,
-                            (o, a) =>
-                            {
-                                Console.WriteLine(MenuScrollViewer.Classes.ToString());
-                                MenuScrollViewer.Classes.Remove("Showing");
-                                MenuScrollViewer.Classes.Add("Show");
-                                //MenuScrollViewer.Width = 150;
-                                Console.WriteLine(MenuScrollViewer.Classes.ToString());
-                            });
+                        DummyScrollViewer.Width = 150;
+                        DummyScrollViewer.Margin = new Thickness(0,0,0,0);
+                        DummyGrid1.Width = this.Width - 150;
                     }
                 }; 
 
@@ -105,6 +91,25 @@ namespace NewYourDiscordRpc
                 {
                     StartButton.IsVisible = false;
                     StopButton.IsVisible = true;
+                    
+                    Dis.Discord dis = new Dis.Discord(488870967217487872, (UInt64)Dis.CreateFlags.Default);
+                    Data.Discord = dis;
+                    
+                    dis.SetLogHook(Dis.LogLevel.Debug, (level, message) =>
+                    {
+                        Console.WriteLine("Log[{0}] {1}", level, message);
+                    });
+                    
+                    var applicationManager = dis.GetApplicationManager();
+                    // Get the current locale. This can be used to determine what text or audio the user wants.
+                    Console.WriteLine($"Current Locale: {applicationManager.GetCurrentLocale()}");
+                    // Get the current branch. For example alpha or beta.
+                    Console.WriteLine($"Current Branch: {applicationManager.GetCurrentBranch()}");
+                    
+                    var activityManager = dis.GetActivityManager();
+                    
+                    UpdateActivity(discord, lobby);
+                    
                 }
 
                 void StopButton_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
